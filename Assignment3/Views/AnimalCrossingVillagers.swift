@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct AnimalCrossingVillagers: View {
+    
+    @ObservedObject var villagersVM = VillagersViewModel()
+    
     var body: some View {
         NavigationStack {
-            
+            List {
+                ForEach(villagersVM.villagersData) { villager in
+                    NavigationLink {
+                        VillagerDetail()
+                    } label: {
+                        Text(villager.name.nameUsEn)
+                    }
+                }
+            }
+            .onAppear {
+                villagersVM.fetchData()
+            }
+            .listStyle(.grouped)
+            .navigationTitle("Villagers")
         }
     }
 }

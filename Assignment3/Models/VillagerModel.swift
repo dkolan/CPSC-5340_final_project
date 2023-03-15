@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Villagers {
-    let villagers : [VillagerModel]
+struct Villagers : Codable {
+    let data : [VillagerModel]
 }
 
 struct VillagerModel: Identifiable, Codable {
