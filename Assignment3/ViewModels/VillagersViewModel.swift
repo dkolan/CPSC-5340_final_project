@@ -22,7 +22,9 @@ class VillagersViewModel : ObservableObject {
                         if let data = data {
                             do {
                                 let results = try JSONDecoder().decode([VillagerModel].self, from: data)
-                                self.villagersData = results
+                                DispatchQueue.main.async {
+                                    self.villagersData = results
+                                }
                             } catch {
                                 print(error)
                             }
