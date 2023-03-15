@@ -21,8 +21,8 @@ class VillagersViewModel : ObservableObject {
                     } else {
                         if let data = data {
                             do {
-                                let results = try JSONDecoder().decode(Villagers.self, from: data)
-                                self.villagersData = results.data
+                                let results = try JSONDecoder().decode([VillagerModel].self, from: data)
+                                self.villagersData = results
                             } catch {
                                 print(error)
                             }
