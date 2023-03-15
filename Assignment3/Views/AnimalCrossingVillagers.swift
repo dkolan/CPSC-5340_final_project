@@ -16,7 +16,7 @@ struct AnimalCrossingVillagers: View {
             List {
                 ForEach(villagersVM.villagersData) { villager in
                     NavigationLink {
-                        VillagerDetail()
+                        VillagerDetail(villager: villager)
                     } label: {
                         Text(villager.name.nameUsEn)
                     }

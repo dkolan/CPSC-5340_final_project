@@ -28,26 +28,28 @@ private var villagers = [
 
 
 struct VillagerDetail: View {
+    var villager : VillagerModel
+    
     var body: some View {
         VStack {
-            ImageCardView(url: "https://acnhapi.com/v1/images/villagers/1")
+            ImageCardView(url: villager.image_uri)
             List {
-                Text("Name: \(Cyrano.name.nameUsEn)")
-                Text("Birthday: \(Cyrano.birthdayString)")
-                Text("Personality: \(Cyrano.personality)")
-                Text("Species: \(Cyrano.species)")
-                Text("Gender: \(Cyrano.gender)")
-                Text("Hobby: \(Cyrano.hobby)")
-                Text("Catchphrase: \(Cyrano.catchPhrase)")
-                Text("Saying: \(Cyrano.saying)")
+                Text("Name: \(villager.name.nameUsEn)")
+                Text("Birthday: \(villager.birthdayString)")
+                Text("Personality: \(villager.personality)")
+                Text("Species: \(villager.species)")
+                Text("Gender: \(villager.gender)")
+                Text("Hobby: \(villager.hobby)")
+                Text("Catchphrase: \(villager.catchPhrase)")
+                Text("Saying: \(villager.saying)")
             }
             .listStyle(PlainListStyle())
         }
      }
 }
 
-struct VillagerDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        VillagerDetail()
-    }
-}
+//struct VillagerDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VillagerDetail()
+//    }
+//}
