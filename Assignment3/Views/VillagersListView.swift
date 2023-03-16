@@ -9,10 +9,11 @@ import SwiftUI
 
 struct VillagersListView: View {
     @ObservedObject var villagersVM = VillagersViewModel()
+    @State private var searchText = ""
 
     var body: some View {
         List {
-            ForEach(villagersVM.villagersData) { villager in
+            ForEach(searchResults) { villager in
                 NavigationLink {
                     VillagerDetail(villager: villager)
                 } label: {
@@ -27,6 +28,14 @@ struct VillagersListView: View {
         .navigationTitle("Villagers")
         .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
             Text("Error.")
+        }
+        .searchable(text: $searchText)
+    }
+    var searchResults: [VillagerModel] {
+        if searchText.isEmpty {
+            return villagersVM.villagersData
+        } else {
+            return villagersVM.villagersData.filter { $0.name.nameUsEn.contains(searchText) }
         }
     }
 }
