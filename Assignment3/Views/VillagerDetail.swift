@@ -14,7 +14,6 @@ struct VillagerDetail: View {
         VStack {
             ImageCardView(url: villager.image_uri)
             List {
-                Text("Name: \(villager.name.nameUsEn)")
                 Text("Birthday: \(villager.birthdayString)")
                 Text("Personality: \(villager.personality)")
                 Text("Species: \(villager.species)")
@@ -24,6 +23,14 @@ struct VillagerDetail: View {
                 Text("Saying: \(villager.saying)")
             }
             .listStyle(PlainListStyle())
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(villager.name.nameUsEn)
+                    .font(.largeTitle.bold())
+                    .accessibilityAddTraits(.isHeader)
+            }
         }
      }
 }
