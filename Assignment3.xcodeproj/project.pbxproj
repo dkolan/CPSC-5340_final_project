@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CACE29C1221800A78C4E /* VillagerModel.swift */; };
+		4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD129C148BF00A78C4E /* VillagerDetail.swift */; };
+		4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD329C14C7D00A78C4E /* ImageCardView.swift */; };
+		4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */; };
 		ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* Assignment3App.swift */; };
-		ACF5E04229BE957F00DD981A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E04129BE957F00DD981A /* ContentView.swift */; };
+		ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */; };
 		ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04329BE958000DD981A /* Assets.xcassets */; };
 		ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04629BE958000DD981A /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4242CACE29C1221800A78C4E /* VillagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagerModel.swift; sourceTree = "<group>"; };
+		4242CAD129C148BF00A78C4E /* VillagerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagerDetail.swift; sourceTree = "<group>"; };
+		4242CAD329C14C7D00A78C4E /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
+		4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagersViewModel.swift; sourceTree = "<group>"; };
 		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5E03F29BE957F00DD981A /* Assignment3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3App.swift; sourceTree = "<group>"; };
-		ACF5E04129BE957F00DD981A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCrossingVillagers.swift; sourceTree = "<group>"; };
 		ACF5E04329BE958000DD981A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF5E04629BE958000DD981A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +40,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4242CAD029C1221B00A78C4E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4242CACE29C1221800A78C4E /* VillagerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4242CAD729C194CC00A78C4E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		42CDF89E29C11DE70080AA77 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */,
+				4242CAD129C148BF00A78C4E /* VillagerDetail.swift */,
+				4242CAD329C14C7D00A78C4E /* ImageCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ACF5E03329BE957F00DD981A = {
 			isa = PBXGroup;
 			children = (
@@ -52,9 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				ACF5E03F29BE957F00DD981A /* Assignment3App.swift */,
-				ACF5E04129BE957F00DD981A /* ContentView.swift */,
+				4242CAD029C1221B00A78C4E /* Models */,
+				42CDF89E29C11DE70080AA77 /* Views */,
 				ACF5E04329BE958000DD981A /* Assets.xcassets */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
+				4242CAD729C194CC00A78C4E /* ViewModels */,
 			);
 			path = Assignment3;
 			sourceTree = "<group>";
@@ -137,7 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF5E04229BE957F00DD981A /* ContentView.swift in Sources */,
+				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
+				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,
+				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
+				4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */,
+				ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +307,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Assignment3/Preview Content\"";
+				DEVELOPMENT_TEAM = FB8J3T2A9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -295,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Assignment3/Preview Content\"";
+				DEVELOPMENT_TEAM = FB8J3T2A9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
