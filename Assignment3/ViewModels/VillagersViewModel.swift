@@ -9,28 +9,43 @@ import Foundation
 
 class VillagersViewModel : ObservableObject {
     @Published private(set) var villagersData = [VillagerModel]()
+    @Published var hasError = false
+    @Published var error : VillagerModelError?
     private let url = "https://acnhapi.com/v1a/villagers/"
     
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         if let url = URL(string: self.url) {
-            URLSession
-                .shared
-                .dataTask(with: url) { data, response, error in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        if let data = data {
-                            do {
-                                let results = try JSONDecoder().decode([VillagerModel].self, from: data)
-                                DispatchQueue.main.async {
-                                    self.villagersData = results
-                                }
-                            } catch {
-                                print(error)
-                            }
-                        }
-                    }
-                }.resume()
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                guard let results = try JSONDecoder().decode([VillagerModel]?.self, from: data) else {
+                    self.hasError.toggle()
+                    self.error = VillagerModelError.decodeError
+                    return
+                }
+                self.villagersData = results
+            } catch {
+                self.hasError.toggle()
+                self.error = VillagerModelError.customError(error: error)
+            }
+        }
+
+    }
+}
+
+extension VillagersViewModel {
+    enum VillagerModelError : LocalizedError {
+        case decodeError
+        case customError(error: Error)
+        
+        var errorDescription: String? {
+            switch self {
+            case .decodeError:
+                return "Decoding error."
+            case .customError(let error):
+                return error.localizedDescription
+                
+            }
         }
     }
 }

@@ -22,11 +22,14 @@ struct AnimalCrossingVillagers: View {
                     }
                 }
             }
-            .onAppear {
-                villagersVM.fetchData()
+            .task {
+                await villagersVM.fetchData()
             }
             .listStyle(.grouped)
             .navigationTitle("Villagers")
+            .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
+                Text("Error.")
+            }
         }
     }
 }
