@@ -23,7 +23,7 @@ class VillagersViewModel : ObservableObject {
                     self.error = VillagerModelError.decodeError
                     return
                 }
-                self.villagersData = results
+                self.villagersData = results.sorted { $0.name.nameUsEn < $1.name.nameUsEn}
             } catch {
                 self.hasError.toggle()
                 self.error = VillagerModelError.customError(error: error)
