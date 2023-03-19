@@ -11,24 +11,32 @@ struct VillagersListView: View {
     @ObservedObject var villagersVM = VillagersViewModel()
 
     var body: some View {
-        List {
-            ForEach(villagersVM.searchResults) { villager in
-                NavigationLink {
-                    VillagerDetail(villager: villager)
-                } label: {
-                    Text(villager.name.nameUsEn)
+        VStack {
+            Picker("Search By", selection: $villagersVM.searchField) {
+                ForEach(VillagersViewModel.SearchField.allCases, id: \.self) { field in
+                    Text(field.displayName).tag(field)
                 }
             }
+            .pickerStyle(.segmented)
+            List {
+                ForEach(villagersVM.searchResults) { villager in
+                    NavigationLink {
+                        VillagerDetail(villager: villager)
+                    } label: {
+                        Text(villager.name.nameUsEn)
+                    }
+                }
+            }
+            .task {
+                await villagersVM.fetchData()
+            }
+            .listStyle(.grouped)
+            .navigationTitle("Villagers")
+            .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
+                Text("Error.")
+            }
+            .searchable(text: $villagersVM.searchText)
         }
-        .task {
-            await villagersVM.fetchData()
-        }
-        .listStyle(.grouped)
-        .navigationTitle("Villagers")
-        .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
-            Text("Error.")
-        }
-        .searchable(text: $villagersVM.searchText)
     }
 }
 
