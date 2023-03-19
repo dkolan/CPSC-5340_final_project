@@ -9,6 +9,7 @@ import Foundation
 
 class VillagersViewModel : ObservableObject {
     @Published private(set) var villagersData = [VillagerModel]()
+    @Published var searchText: String = ""
     @Published var hasError = false
     @Published var error : VillagerModelError?
     private let url = "https://acnhapi.com/v1a/villagers/"
@@ -30,6 +31,17 @@ class VillagersViewModel : ObservableObject {
             }
         }
 
+    }
+    
+    var searchResults: [VillagerModel] {
+        var res: [VillagerModel]
+        if searchText.isEmpty {
+            res = villagersData
+        } else {
+            res = villagersData.filter { $0.name.nameUsEn.contains(searchText) }
+        }
+
+        return res
     }
 }
 
