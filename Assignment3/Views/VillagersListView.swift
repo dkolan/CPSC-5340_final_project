@@ -23,7 +23,10 @@ struct VillagersListView: View {
                     NavigationLink {
                         VillagerDetail(villager: villager)
                     } label: {
-                        Text(villager.name.nameUsEn)
+                        HStack {
+//                            ImageCardView(url: villager.icon_uri, frameWidth: 50, frameHeight: 50)
+                            Text(villager.name.nameUsEn)
+                        }
                     }
                 }
             }
