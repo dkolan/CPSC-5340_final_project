@@ -38,7 +38,7 @@ struct VillagersListView: View {
             .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
                 Text("Error.")
             }
-            .searchable(text: $villagersVM.searchText)
+            .searchable(text: $villagersVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
         }
     }
 }

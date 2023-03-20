@@ -11,35 +11,27 @@ struct FishListView: View {
     @ObservedObject var fishVM = FishViewModel()
     
     var body: some View {
-        VStack {
-            Picker("Search By", selection: $fishVM.searchField) {
-                ForEach(FishViewModel.SearchField.allCases, id: \.self) { field in
-                    Text(field.displayName).tag(field)
-                }
-            }
-            .pickerStyle(.segmented)
-            List {
-                ForEach(fishVM.searchResults) { fish in
-                    NavigationLink {
-                        FishDetail(fish: fish)
-                    } label: {
-                        HStack {
+        List {
+            ForEach(fishVM.searchResults) { fish in
+                NavigationLink {
+                    FishDetail(fish: fish)
+                } label: {
+                    HStack {
 //                            ImageCardView(url: fish.icon_uri, frameWidth: 50, frameHeight: 50)
-                            Text(fish.name.nameUsEn.capitalized)
-                        }
+                        Text(fish.name.nameUsEn.capitalized)
                     }
                 }
             }
-            .task {
-                await fishVM.fetchData()
-            }
-            .listStyle(.grouped)
-            .navigationTitle("Villagers")
-            .alert(isPresented: $fishVM.hasError, error: fishVM.error) {
-                Text("Error.")
-            }
-            .searchable(text: $fishVM.searchText)
         }
+        .task {
+            await fishVM.fetchData()
+        }
+        .listStyle(.grouped)
+        .navigationTitle("Fish")
+        .alert(isPresented: $fishVM.hasError, error: fishVM.error) {
+            Text("Error.")
+        }
+        .searchable(text: $fishVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
     }
 }
 
