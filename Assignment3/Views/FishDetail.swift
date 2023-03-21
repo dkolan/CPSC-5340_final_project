@@ -21,11 +21,13 @@ struct FishDetail: View {
         let southernStartMonth = DateFormatter().monthSymbols[monthArraySouthernStart - 1]
         let southernEndMonth = DateFormatter().monthSymbols[monthArraySouthernEnd - 1]
         
+        let fishAvailabilityTime = fish.availability.time == "" ? "24 Hours" : fish.availability.time
+
         VStack {
             ImageCardView(url: fish.image_uri, frameWidth: 200, frameHeight: 200)
             List {
                 Text("Months Available: \n\(northernStartMonth)-\(northernEndMonth) (Northern Hemisphere)\n\(southernStartMonth)-\(southernEndMonth) (Southern Hemisphere)")
-                Text("Time Available: \(fish.availability.time)")
+                Text("Time Available: \(fishAvailabilityTime)")
                 Text("Location: \(fish.availability.location)")
                 Text("Rarity: \(fish.availability.rarity)")
                 Text("Shadow: \(fish.shadow)")

@@ -53,11 +53,11 @@ class VillagersViewModel : ObservableObject {
         } else {
             switch searchField {
             case .name:
-                res = villagersData.filter { $0.name.nameUsEn.contains(searchText) }
+                res = villagersData.filter { $0.name.nameUsEn.lowercased().contains(searchText.lowercased()) }
             case .personality:
-                res = villagersData.filter { $0.personality.contains(searchText) }
+                res = villagersData.filter { $0.personality.lowercased().contains(searchText.lowercased()) }
             case .species:
-                res = villagersData.filter { $0.species.contains(searchText) }
+                res = villagersData.filter { $0.species.lowercased().contains(searchText.lowercased()) }
             }
         }
         return res

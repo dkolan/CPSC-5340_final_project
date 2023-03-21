@@ -44,16 +44,11 @@ class FishViewModel : ObservableObject {
     
     // Refactor since there is no reason to filter by other criteria
     var searchResults: [FishModel] {
-        var res: [FishModel]
         if searchText.isEmpty {
-            res = fishData
+            return fishData
         } else {
-            switch searchField {
-            case .name:
-                res = fishData.filter { $0.name.nameUsEn.contains(searchText) }
-            }
+            return fishData.filter { $0.name.nameUsEn.lowercased().contains(searchText.lowercased()) }
         }
-        return res
     }
 }
 
