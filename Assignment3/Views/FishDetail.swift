@@ -39,7 +39,7 @@ struct FishDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text(fish.name.nameUsEn)
+                Text(fish.name.nameUsEn.capitalized)
                     .font(.largeTitle.bold())
                     .accessibilityAddTraits(.isHeader)
             }
