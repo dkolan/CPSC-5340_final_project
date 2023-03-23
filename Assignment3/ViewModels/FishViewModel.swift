@@ -11,6 +11,7 @@ class FishViewModel : ObservableObject {
     @Published private(set) var fishData = [FishModel]()
     @Published var searchText: String = ""
     @Published var searchField: FishViewModel.SearchField = .name
+    @Published var currentlyAvailableToggle : Bool = false
     @Published var hasError = false
     @Published var error : FishModelError?
     private let url = "https://acnhapi.com/v1a/fish/"
@@ -42,14 +43,22 @@ class FishViewModel : ObservableObject {
         }
     }
     
-    // Refactor since there is no reason to filter by other criteria
     var searchResults: [FishModel] {
+        var res : [FishModel]
         if searchText.isEmpty {
-            return fishData
+            res = fishData
         } else {
-            return fishData.filter { $0.name.nameUsEn.lowercased().contains(searchText.lowercased()) }
+            res = fishData.filter { $0.name.nameUsEn.lowercased().contains(searchText.lowercased()) }
         }
+        
+        if currentlyAvailableToggle {
+            let currentMonth = Calendar.current.component(.month, from: Date())
+            res = res.filter { $0.availability.monthArrayNorthern.contains(currentMonth) }
+        }
+        
+        return res
     }
+
 }
 
 extension FishViewModel {
