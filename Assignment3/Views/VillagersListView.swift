@@ -9,33 +9,36 @@ import SwiftUI
 
 struct VillagersListView: View {
     @ObservedObject var villagersVM = VillagersViewModel()
-    @State private var searchText = ""
 
     var body: some View {
-        List {
-            ForEach(searchResults) { villager in
-                NavigationLink {
-                    VillagerDetail(villager: villager)
-                } label: {
-                    Text(villager.name.nameUsEn)
+        VStack {
+            Picker("Search By", selection: $villagersVM.searchField) {
+                ForEach(VillagersViewModel.SearchField.allCases, id: \.self) { field in
+                    Text(field.displayName).tag(field)
                 }
             }
-        }
-        .task {
-            await villagersVM.fetchData()
-        }
-        .listStyle(.grouped)
-        .navigationTitle("Villagers")
-        .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
-            Text("Error.")
-        }
-        .searchable(text: $searchText)
-    }
-    var searchResults: [VillagerModel] {
-        if searchText.isEmpty {
-            return villagersVM.villagersData
-        } else {
-            return villagersVM.villagersData.filter { $0.name.nameUsEn.contains(searchText) }
+            .pickerStyle(.segmented)
+            List {
+                ForEach(villagersVM.searchResults) { villager in
+                    NavigationLink {
+                        VillagerDetail(villager: villager)
+                    } label: {
+                        HStack {
+//                            ImageCardView(url: villager.icon_uri, frameWidth: 50, frameHeight: 50)
+                            Text(villager.name.nameUsEn)
+                        }
+                    }
+                }
+            }
+            .task {
+                await villagersVM.fetchData()
+            }
+            .listStyle(.grouped)
+            .navigationTitle("Villagers")
+            .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
+                Text("Error.")
+            }
+            .searchable(text: $villagersVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
         }
     }
 }

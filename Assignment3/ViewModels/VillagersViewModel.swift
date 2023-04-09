@@ -9,10 +9,25 @@ import Foundation
 
 class VillagersViewModel : ObservableObject {
     @Published private(set) var villagersData = [VillagerModel]()
+    @Published var searchText: String = ""
+    @Published var searchField: VillagersViewModel.SearchField = .name
     @Published var hasError = false
     @Published var error : VillagerModelError?
     private let url = "https://acnhapi.com/v1a/villagers/"
     
+    enum SearchField: String, CaseIterable {
+        case name
+        case personality
+        case species
+        var displayName: String {
+            switch self {
+            case .name: return "Name"
+            case .personality: return "Personality"
+            case .species: return "Species"
+            }
+        }
+    }
+
     @MainActor
     func fetchData() async {
         if let url = URL(string: self.url) {
@@ -29,7 +44,23 @@ class VillagersViewModel : ObservableObject {
                 self.error = VillagerModelError.customError(error: error)
             }
         }
-
+    }
+    
+    var searchResults: [VillagerModel] {
+        var res: [VillagerModel]
+        if searchText.isEmpty {
+            res = villagersData
+        } else {
+            switch searchField {
+            case .name:
+                res = villagersData.filter { $0.name.nameUsEn.lowercased().contains(searchText.lowercased()) }
+            case .personality:
+                res = villagersData.filter { $0.personality.lowercased().contains(searchText.lowercased()) }
+            case .species:
+                res = villagersData.filter { $0.species.lowercased().contains(searchText.lowercased()) }
+            }
+        }
+        return res
     }
 }
 

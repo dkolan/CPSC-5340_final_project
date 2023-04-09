@@ -48,5 +48,4 @@ struct NameModel: Codable {
     enum CodingKeys: String, CodingKey {
         case nameUsEn = "name-USen"
     }
-    
 }

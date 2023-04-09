@@ -12,7 +12,7 @@ struct VillagerDetail: View {
     
     var body: some View {
         VStack {
-            ImageCardView(url: villager.image_uri)
+            ImageCardView(url: villager.image_uri, frameWidth: 200, frameHeight: 200)
             List {
                 Text("Birthday: \(villager.birthdayString)")
                 Text("Personality: \(villager.personality)")

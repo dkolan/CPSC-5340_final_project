@@ -11,7 +11,8 @@ import SwiftUI
 struct Assignment3App: App {
     var body: some Scene {
         WindowGroup {
-            AnimalCrossingVillagers()
+//            AnimalCrossingVillagers()
+            NavigationView()
         }
     }
 }
