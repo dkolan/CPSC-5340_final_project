@@ -12,22 +12,31 @@ struct VillagerDetail: View {
     
     var body: some View {
         VStack {
-            ImageCardView(url: villager.image_uri, frameWidth: 200, frameHeight: 200)
+//            ImageCardView(url: villager.image_uri, frameWidth: 200, frameHeight: 200)
+            ImageCardView(url: villager.image_url, frameWidth: 200, frameHeight: 200, imageId: villager.id.capitalized)
             List {
-                Text("Birthday: \(villager.birthdayString)")
+//                Text("Birthday: \(villager.birthdayString)")
+//                Text("Personality: \(villager.personality)")
+//                Text("Species: \(villager.species)")
+//                Text("Gender: \(villager.gender)")
+//                Text("Hobby: \(villager.hobby)")
+//                Text("Catchphrase: \(villager.catchPhrase)")
+//                Text("Saying: \(villager.saying)")
+                
+                Text("Birthday: \(villager.birthday_month) \(villager.birthday_day)")
                 Text("Personality: \(villager.personality)")
                 Text("Species: \(villager.species)")
                 Text("Gender: \(villager.gender)")
-                Text("Hobby: \(villager.hobby)")
-                Text("Catchphrase: \(villager.catchPhrase)")
-                Text("Saying: \(villager.saying)")
+                Text("Catchphrase: \(villager.phrase)")
+                Text("Saying: \(villager.quote)")
             }
             .listStyle(PlainListStyle())
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text(villager.name.nameUsEn)
+//                Text(villager.name.nameUsEn)
+                Text(villager.name)
                     .font(.largeTitle.bold())
                     .accessibilityAddTraits(.isHeader)
             }

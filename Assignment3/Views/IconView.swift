@@ -1,25 +1,25 @@
 //
-//  ImageCardView.swift
+//  IconView.swift
 //  Assignment3
 //
-//  Created by Dan Kolan on 3/14/23.
+//  Created by Dan Kolan on 4/11/23.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct ImageCardView: View {
+struct IconView: View {
     var url : String
     var frameWidth : CGFloat
     var frameHeight : CGFloat
     
     var imageId: String
-    var imageCardBaseUrl = "https://acnhcdn.com/latest/NpcBromide/NpcNml"
+    var iconBaseUrl = "https://acnhcdn.com/latest/NpcIcon/"
     
     var body: some View {
-        let imageCardUrl = "\(imageCardBaseUrl)\(imageId).png"
+        let iconUrl = "\(iconBaseUrl)\(imageId).png"
         
-        KFImage(URL(string: imageCardUrl)!)
+        KFImage(URL(string: iconUrl)!)
             .placeholder {
                 ProgressView()
             }
@@ -41,7 +41,7 @@ struct ImageCardView: View {
     }
 }
 
-struct ImageCardView_Previews: PreviewProvider {
+struct IconView_Previews: PreviewProvider {
     static var previews: some View {
         ImageCardView(url: "https://acnhcdn.com/latest/NpcBromide/NpcNmlCat01.png",frameWidth: 200, frameHeight: 200, imageId: "Cat01")
     }

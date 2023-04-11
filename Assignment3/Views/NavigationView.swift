@@ -18,13 +18,13 @@ struct NavigationView: View {
                         Text("Villagers")
                     }
                 )
-                NavigationLink(
-                    destination:
-                        FishListView(),
-                    label: {
-                        Text("Fish")
-                    }
-                )
+//                NavigationLink(
+//                    destination:
+//                        FishListView(),
+//                    label: {
+//                        Text("Fish")
+//                    }
+//                )
             }
             .navigationBarTitle("Animal Crossing Reference")
             .listStyle(.grouped)
