@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ImageCardView: View {
     var url : String
@@ -13,15 +14,19 @@ struct ImageCardView: View {
     var frameHeight : CGFloat
     
     var body: some View {
-        AsyncImage(url: URL(string: url)) {
-            image in
-            image.resizable()
-                .scaledToFit()
-                .cornerRadius(20)
-                .frame(width: frameWidth, height: frameHeight)
-        } placeholder: {
-            ProgressView()
-        }
+        KFImage(URL(string: url)!)
+            .placeholder {
+                ProgressView()
+            }
+            .cacheOriginalImage()
+            .retry(maxCount: 3, interval: .seconds(5))
+            .resizable()
+            .frame(width: frameWidth, height: frameHeight)
+            .cornerRadius(20)
+            .onAppear {
+//                Debug checking if images are successfulyl cached
+//                print("url: \(url) cached: \(KingfisherManager.shared.cache.isCached(forKey:url))")
+            }
     }
 }
 

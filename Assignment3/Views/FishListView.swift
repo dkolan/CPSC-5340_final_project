@@ -20,7 +20,7 @@ struct FishListView: View {
                         FishDetail(fish: fish)
                     } label: {
                         HStack {
-                            //                            ImageCardView(url: fish.icon_uri, frameWidth: 50, frameHeight: 50)
+                            ImageCardView(url: fish.icon_uri, frameWidth: 50, frameHeight: 50)
                             Text(fish.name.nameUsEn.capitalized)
                         }
                     }
