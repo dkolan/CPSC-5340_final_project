@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4234AC1F29E669450045B7A9 /* Nookipedia-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4234AC1E29E669450045B7A9 /* Nookipedia-Info.plist */; };
+		4234AC2229E66A7F0045B7A9 /* NookipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4234AC2129E66A7F0045B7A9 /* NookipediaViewModel.swift */; };
 		4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CACE29C1221800A78C4E /* VillagerModel.swift */; };
 		4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD129C148BF00A78C4E /* VillagerDetail.swift */; };
 		4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD329C14C7D00A78C4E /* ImageCardView.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4234AC1E29E669450045B7A9 /* Nookipedia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nookipedia-Info.plist"; sourceTree = "<group>"; };
+		4234AC2129E66A7F0045B7A9 /* NookipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NookipediaViewModel.swift; sourceTree = "<group>"; };
 		4242CACE29C1221800A78C4E /* VillagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagerModel.swift; sourceTree = "<group>"; };
 		4242CAD129C148BF00A78C4E /* VillagerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagerDetail.swift; sourceTree = "<group>"; };
 		4242CAD329C14C7D00A78C4E /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 		4242CAD729C194CC00A78C4E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4234AC2129E66A7F0045B7A9 /* NookipediaViewModel.swift */,
 				4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */,
 				4296DF7329C81F03006978BA /* FishViewModel.swift */,
 			);
@@ -114,6 +119,7 @@
 				42CDF89E29C11DE70080AA77 /* Views */,
 				ACF5E04329BE958000DD981A /* Assets.xcassets */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
+				4234AC1E29E669450045B7A9 /* Nookipedia-Info.plist */,
 			);
 			path = Assignment3;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */,
+				4234AC1F29E669450045B7A9 /* Nookipedia-Info.plist in Resources */,
 				ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +222,7 @@
 				ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */,
 				4296DF7829C8204E006978BA /* FishListView.swift in Sources */,
+				4234AC2229E66A7F0045B7A9 /* NookipediaViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

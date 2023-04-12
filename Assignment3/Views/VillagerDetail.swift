@@ -9,20 +9,13 @@ import SwiftUI
 
 struct VillagerDetail: View {
     var villager : VillagerModel
+    let villagerCardBaseUrl = "https://acnhcdn.com/latest/NpcBromide/NpcNml"
     
     var body: some View {
         VStack {
-//            ImageCardView(url: villager.image_uri, frameWidth: 200, frameHeight: 200)
-            ImageCardView(url: villager.image_url, frameWidth: 200, frameHeight: 200, imageId: villager.id.capitalized)
+            ImageCardView(url: "\(villagerCardBaseUrl)\(villager.id.capitalized).png", frameWidth: 200, frameHeight: 200)
             List {
-//                Text("Birthday: \(villager.birthdayString)")
-//                Text("Personality: \(villager.personality)")
-//                Text("Species: \(villager.species)")
-//                Text("Gender: \(villager.gender)")
-//                Text("Hobby: \(villager.hobby)")
-//                Text("Catchphrase: \(villager.catchPhrase)")
-//                Text("Saying: \(villager.saying)")
-                
+               
                 Text("Birthday: \(villager.birthday_month) \(villager.birthday_day)")
                 Text("Personality: \(villager.personality)")
                 Text("Species: \(villager.species)")
@@ -35,7 +28,6 @@ struct VillagerDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-//                Text(villager.name.nameUsEn)
                 Text(villager.name)
                     .font(.largeTitle.bold())
                     .accessibilityAddTraits(.isHeader)
