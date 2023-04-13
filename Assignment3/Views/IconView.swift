@@ -25,7 +25,6 @@ struct IconView: View {
             .frame(width: frameWidth, height: frameHeight)
             .cornerRadius(20)
             .onAppear {
-//                print(url)
 //                Debug checking if images are successfulyl cached
 //                print("url: \(url) cached: \(KingfisherManager.shared.cache.isCached(forKey:url))")
             }

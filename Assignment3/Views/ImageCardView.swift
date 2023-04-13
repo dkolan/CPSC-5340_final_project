@@ -22,6 +22,7 @@ struct ImageCardView: View {
             .retry(maxCount: 3, interval: .seconds(5))
             .cacheOriginalImage()
             .resizable()
+            .aspectRatio(contentMode: .fit)
             .frame(width: frameWidth, height: frameHeight)
             .cornerRadius(20)
             .onAppear {

@@ -18,6 +18,7 @@ struct FishModel: Identifiable, Codable {
     let render_url : String
     let location : String
     let shadow_size : String
+    let rarity : String
     let sell_nook : Int
     let sell_cj : Int
     let north : FishAvailabilityModel
@@ -29,6 +30,7 @@ struct FishModel: Identifiable, Codable {
         case image_url
         case render_url
         case location
+        case rarity
         case shadow_size
         case sell_nook
         case sell_cj
@@ -40,11 +42,13 @@ struct FishModel: Identifiable, Codable {
 struct FishAvailabilityModel: Codable {
     let availability_array : [FishMonthTimeModel]
     let times_by_month : TimesByMonthModel
+    let months : String
     let months_array : [Int]
     
     enum CodingKeys: String, CodingKey {
         case availability_array
         case times_by_month
+        case months
         case months_array
     }
 }

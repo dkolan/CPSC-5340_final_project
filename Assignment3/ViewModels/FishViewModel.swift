@@ -6,6 +6,7 @@
 ////
 //
 import Foundation
+import CoreLocation
 
 class FishViewModel : ObservableObject {
     @Published private(set) var fishData = [FishModel]()
@@ -13,8 +14,9 @@ class FishViewModel : ObservableObject {
     @Published var searchField: FishViewModel.SearchField = .name
     @Published var currentlyAvailableToggle : Bool = false
     @Published var hasError = false
-    @Published var error : FishModelError?
-//    private let url = "https://acnhapi.com/v1a/fish/"
+    @Published var error: FishModelError?
+    @Published var hemisphere: String = ""
+
     private let url = "https://api.nookipedia.com/nh/fish?api_key=\(NookpediaViewModel.apiKey)"
     
     enum SearchField: String, CaseIterable {
@@ -51,11 +53,13 @@ class FishViewModel : ObservableObject {
         } else {
             res = fishData.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
-        
-//        if currentlyAvailableToggle {
-//            let currentMonth = Calendar.current.component(.month, from: Date())
-//            res = res.filter { $0.availability.monthArrayNorthern.contains(currentMonth) }
-//        }
+
+        if currentlyAvailableToggle {
+            let currentMonth = Calendar.current.component(.month, from: Date())
+            res = hemisphere == "north" ?
+                res.filter { $0.north.months_array.contains(currentMonth) }
+                : res.filter { $0.south.months_array.contains(currentMonth) }
+        }
         
         return res
     }

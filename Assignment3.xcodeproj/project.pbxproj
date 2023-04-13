@@ -20,6 +20,7 @@
 		4296DF7629C82034006978BA /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7529C82034006978BA /* FishDetail.swift */; };
 		4296DF7829C8204E006978BA /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7729C8204E006978BA /* FishListView.swift */; };
 		4296DF7A29C82745006978BA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7929C82745006978BA /* NavigationView.swift */; };
+		4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297632429E7C4A40047D9C1 /* LocationDataManager.swift */; };
 		42F7AC5829E53C450014F994 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7AC5729E53C450014F994 /* IconView.swift */; };
 		ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* Assignment3App.swift */; };
 		ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */; };
@@ -40,6 +41,7 @@
 		4296DF7529C82034006978BA /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
 		4296DF7729C8204E006978BA /* FishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListView.swift; sourceTree = "<group>"; };
 		4296DF7929C82745006978BA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		4297632429E7C4A40047D9C1 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		42F7AC5729E53C450014F994 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5E03F29BE957F00DD981A /* Assignment3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3App.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				4234AC2129E66A7F0045B7A9 /* NookipediaViewModel.swift */,
 				4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */,
 				4296DF7329C81F03006978BA /* FishViewModel.swift */,
+				4297632429E7C4A40047D9C1 /* LocationDataManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
 				4296DF7629C82034006978BA /* FishDetail.swift in Sources */,
 				42F7AC5829E53C450014F994 /* IconView.swift in Sources */,
+				4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */,
 				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,
 				4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */,
 				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
@@ -354,6 +358,7 @@
 				DEVELOPMENT_TEAM = FB8J3T2A9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location to determine what hemisphere you are in.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,6 +388,7 @@
 				DEVELOPMENT_TEAM = FB8J3T2A9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location to determine what hemisphere you are in.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
