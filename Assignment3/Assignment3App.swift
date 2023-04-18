@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct Assignment3App: App {
+    @StateObject var locationDataManager = LocationDataManager()
+    
     var body: some Scene {
         WindowGroup {
-//            AnimalCrossingVillagers()
-            NavigationView()
+            NavigationView().environmentObject(locationDataManager)
         }
     }
 }

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct FishListView: View {
     @ObservedObject var fishVM = FishViewModel()
+    @EnvironmentObject var locationDataManager: LocationDataManager
+    
+    let fishIconBashUrl = "https://acnhcdn.com/latest/MenuIcon/Fish"
     
     var body: some View {
         VStack {
@@ -20,8 +23,8 @@ struct FishListView: View {
                         FishDetail(fish: fish)
                     } label: {
                         HStack {
-                            ImageCardView(url: fish.icon_uri, frameWidth: 50, frameHeight: 50)
-                            Text(fish.name.nameUsEn.capitalized)
+                            IconView(url: fish.image_url, frameWidth: 50, frameHeight: 50)
+                            Text(fish.name.capitalized)
                         }
                     }
                 }
@@ -35,6 +38,9 @@ struct FishListView: View {
                 Text("Error.")
             }
             .searchable(text: $fishVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+        }
+        .onAppear {
+            fishVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
         }
     }
 }
