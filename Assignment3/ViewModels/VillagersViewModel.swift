@@ -19,8 +19,13 @@ class VillagersViewModel : ObservableObject {
             searchText = ""
         }
     }
+    private let favoriteVillagersKey = "favoriteVillagers"
     private let url = "https://api.nookipedia.com/villagers?api_key=\(NookpediaViewModel.apiKey)"
     
+    init() {
+        loadFavoriteVillagers()
+    }
+
     enum SearchField: String, CaseIterable {
         case name
         case personality
@@ -54,7 +59,7 @@ class VillagersViewModel : ObservableObject {
             }
         }
     }
-    
+
     var searchResults: [VillagerModel] {
         var res: [VillagerModel]
         if searchText.isEmpty {
@@ -72,6 +77,18 @@ class VillagersViewModel : ObservableObject {
         return res
     }
 
+    private func loadFavoriteVillagers() {
+        if let data = UserDefaults.standard.data(forKey: favoriteVillagersKey),
+           let favorites = try? JSONDecoder().decode([VillagerModel].self, from: data) {
+            self.favoriteVillagers = favorites
+        }
+    }
+
+    private func saveFavoriteVillagers() {
+        if let data = try? JSONEncoder().encode(favoriteVillagers) {
+            UserDefaults.standard.set(data, forKey: favoriteVillagersKey)
+        }
+    }
 
     func toggleFavorite(villager: VillagerModel) {
         if let index = favoriteVillagers.firstIndex(where: { $0.id == villager.id }) {
@@ -80,6 +97,7 @@ class VillagersViewModel : ObservableObject {
             favoriteVillagers.append(villager)
         }
         favoriteVillagers = favoriteVillagers.sorted {$0.name < $1.name}
+        saveFavoriteVillagers()
     }
 }
 
