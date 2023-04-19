@@ -10,13 +10,19 @@ import CoreLocation
 
 class FishViewModel : ObservableObject {
     @Published private(set) var fishData = [FishModel]()
+    @Published private(set) var favoriteFish = [FishModel]()
     @Published var searchText: String = ""
     @Published var searchField: FishViewModel.SearchField = .name
     @Published var currentlyAvailableToggle : Bool = false
     @Published var hasError = false
     @Published var error: FishModelError?
     @Published var hemisphere: String = ""
-
+    @Published var isFavoritesOnly = false {
+        didSet {
+            searchText = ""
+        }
+    }
+    private let favoriteFishKey = "favoriteFish"
     private let url = "https://api.nookipedia.com/nh/fish?api_key=\(NookpediaViewModel.apiKey)"
     
     enum SearchField: String, CaseIterable {
@@ -49,9 +55,9 @@ class FishViewModel : ObservableObject {
     var searchResults: [FishModel] {
         var res : [FishModel]
         if searchText.isEmpty {
-            res = fishData
+            res = isFavoritesOnly ? favoriteFish : fishData
         } else {
-            res = fishData.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            res = isFavoritesOnly ? favoriteFish.filter { $0.name.lowercased().contains(searchText.lowercased()) } : fishData.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
 
         if currentlyAvailableToggle {
@@ -62,6 +68,29 @@ class FishViewModel : ObservableObject {
         }
         
         return res
+    }
+
+    private func loadFavoriteFish() {
+        if let data = UserDefaults.standard.data(forKey: favoriteFishKey),
+           let favorites = try? JSONDecoder().decode([FishModel].self, from: data) {
+            self.favoriteFish = favorites
+        }
+    }
+
+    private func saveFavoriteFish() {
+        if let data = try? JSONEncoder().encode(favoriteFish) {
+            UserDefaults.standard.set(data, forKey: favoriteFishKey)
+        }
+    }
+
+    func toggleFavorite(fish: FishModel) {
+        if let index = favoriteFish.firstIndex(where: { $0.id == fish.id }) {
+            favoriteFish.remove(at: index)
+        } else {
+            favoriteFish.append(fish)
+        }
+        favoriteFish = favoriteFish.sorted {$0.name < $1.name}
+        saveFavoriteFish()
     }
 
 }

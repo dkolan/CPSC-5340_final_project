@@ -25,6 +25,12 @@ struct VillagersListView: View {
                         VillagerDetail(villager: villager)
                     } label: {
                         HStack {
+                            Image(systemName: villagersVM.favoriteVillagers
+                                .contains(where: { $0.id == villager.id }) ? "star.fill" : "star")
+                                .foregroundColor(.yellow)
+                                .onTapGesture {
+                                    villagersVM.toggleFavorite(villager: villager)
+                                }
                             IconView(url: "\(villagerIconBaseUrl)\(villager.id).png", frameWidth: 50, frameHeight: 50)
                             Text(villager.name)
                         }
@@ -41,6 +47,14 @@ struct VillagersListView: View {
             }
             .searchable(text: $villagersVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
         }
+        .padding(5)
+        .navigationBarItems(trailing: Button(action: {
+            villagersVM.isFavoritesOnly.toggle()
+        }) {
+            Text("Favorites")
+            Image(systemName: villagersVM.isFavoritesOnly ? "star.fill" : "star")
+                .foregroundColor(.yellow)
+        })
     }
 }
 
