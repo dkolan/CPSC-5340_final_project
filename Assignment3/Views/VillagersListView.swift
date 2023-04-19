@@ -19,14 +19,6 @@ struct VillagersListView: View {
                 }
             }
             .pickerStyle(.segmented)
-//            HStack {
-//                Button(action: { villagersVM.isFavoritesOnly.toggle() }) {
-//                    Image(systemName: villagersVM.isFavoritesOnly ? "star.fill" : "star")
-//                        .foregroundColor(.yellow)
-//                    Text("Favorites")
-//                }
-//            }
-//            .padding(5)
             List {
                 ForEach(villagersVM.searchResults) { villager in
                     NavigationLink {

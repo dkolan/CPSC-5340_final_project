@@ -11,7 +11,7 @@ struct FishListView: View {
     @ObservedObject var fishVM = FishViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
     
-    let fishIconBashUrl = "https://acnhcdn.com/latest/MenuIcon/Fish"
+    let fishIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/Fish"
     
     var body: some View {
         VStack {
@@ -22,7 +22,17 @@ struct FishListView: View {
                     NavigationLink {
                         FishDetail(fish: fish)
                     } label: {
+//                        HStack {
+//                            IconView(url: fish.image_url, frameWidth: 50, frameHeight: 50)
+//                            Text(fish.name.capitalized)
+//                        }
                         HStack {
+                            Image(systemName: fishVM.favoriteFish
+                                .contains(where: { $0.id == fish.id }) ? "star.fill" : "star")
+                                .foregroundColor(.yellow)
+                                .onTapGesture {
+                                    fishVM.toggleFavorite(fish: fish)
+                                }
                             IconView(url: fish.image_url, frameWidth: 50, frameHeight: 50)
                             Text(fish.name.capitalized)
                         }
@@ -42,6 +52,14 @@ struct FishListView: View {
         .onAppear {
             fishVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
         }
+        .padding(5)
+        .navigationBarItems(trailing: Button(action: {
+            fishVM.isFavoritesOnly.toggle()
+        }) {
+            Text("Favorites")
+            Image(systemName: fishVM.isFavoritesOnly ? "star.fill" : "star")
+                .foregroundColor(.yellow)
+        })
     }
 }
 
