@@ -22,10 +22,6 @@ struct FishListView: View {
                     NavigationLink {
                         FishDetail(fish: fish)
                     } label: {
-//                        HStack {
-//                            IconView(url: fish.image_url, frameWidth: 50, frameHeight: 50)
-//                            Text(fish.name.capitalized)
-//                        }
                         HStack {
                             Image(systemName: fishVM.favoriteFish
                                 .contains(where: { $0.id == fish.id }) ? "star.fill" : "star")

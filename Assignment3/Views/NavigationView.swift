@@ -13,9 +13,9 @@ struct NavigationView: View {
             List {
                 NavigationLink(
                     destination:
-                        VillagersListView(),
+                        BugListView(),
                     label: {
-                        Text("Villagers")
+                        Text("Bugs")
                     }
                 )
                 NavigationLink(
@@ -23,6 +23,13 @@ struct NavigationView: View {
                         FishListView(),
                     label: {
                         Text("Fish")
+                    }
+                )
+                NavigationLink(
+                    destination:
+                        VillagersListView(),
+                    label: {
+                        Text("Villagers")
                     }
                 )
             }

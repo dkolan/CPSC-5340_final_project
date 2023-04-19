@@ -22,19 +22,6 @@ struct FishDetail: View {
     }
     
     var body: some View {
-//        let monthArrayNorthernStart = fish.availability.monthArrayNorthern.first ?? 1
-//        let monthArrayNorthernEnd = fish.availability.monthArrayNorthern.last ?? 12
-//        let monthArraySouthernStart = fish.availability.monthArraySouthern.first ?? 1
-//        let monthArraySouthernEnd = fish.availability.monthArraySouthern.last ?? 12
-//
-//        let northernStartMonth = DateFormatter().monthSymbols[monthArrayNorthernStart - 1]
-//        let northernEndMonth = DateFormatter().monthSymbols[monthArrayNorthernEnd - 1]
-//        let southernStartMonth = DateFormatter().monthSymbols[monthArraySouthernStart - 1]
-//        let southernEndMonth = DateFormatter().monthSymbols[monthArraySouthernEnd - 1]
-//
-//        let fishAvailabilityTime = fish.availability.time == "" ? "24 Hours" : fish.availability.time
-        
-
         VStack {
             ImageCardView(url: fish.render_url, frameWidth: 200, frameHeight: 200)
             List {
