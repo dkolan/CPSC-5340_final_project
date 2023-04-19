@@ -27,6 +27,13 @@ struct NavigationView: View {
                 )
                 NavigationLink(
                     destination:
+                        SeaCreatureListView(),
+                    label: {
+                        Text("Sea Creatures")
+                    }
+                )
+                NavigationLink(
+                    destination:
                         VillagersListView(),
                     label: {
                         Text("Villagers")
