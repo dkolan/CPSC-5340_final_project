@@ -35,10 +35,12 @@ struct NavigationCardView: View {
             Text(name)
                 .font(.title)
                 .foregroundColor(.white)
-            Text(type)
-                .font(.body)
-                .foregroundColor(.white)
-                .fixedSize(horizontal: false, vertical: true)
+            if !type.isEmpty {
+                Text(type)
+                    .font(.body)
+                    .foregroundColor(.white)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .padding()
         .background(cardColor.overlay(.black.opacity(scrimTransparency)))
