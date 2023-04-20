@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FishListView: View {
-    @ObservedObject var fishVM = FishViewModel()
+    @StateObject var fishVM = FishViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
     
     let fishIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/Fish"
@@ -18,6 +18,9 @@ struct FishListView: View {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 Toggle("Currently Available", isOn: $fishVM.currentlyAvailableToggle)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
                 List {
                     ForEach(fishVM.searchResults) { fish in
@@ -45,6 +48,7 @@ struct FishListView: View {
                                 )
                                 .padding(5)
                         )
+                        .listRowSeparator(.hidden)
                     }
                 }
                 .task {
@@ -56,6 +60,7 @@ struct FishListView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("ACNHBackground"))
                 .listStyle(.plain)
+                .blendMode(fishVM.searchResults.isEmpty ? .destinationOver : .normal)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .navigationTitle("Fish")
                 .searchable(text: $fishVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
@@ -63,6 +68,7 @@ struct FishListView: View {
             .onAppear {
                 fishVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
             }
+            .background(Color("ACNHBackground"))
             .padding(5)
             .navigationBarItems(trailing: Button(action: {
                 fishVM.isFavoritesOnly.toggle()
