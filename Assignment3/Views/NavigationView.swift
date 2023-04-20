@@ -13,46 +13,47 @@ struct NavigationView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: gridLayout,
-                          alignment: .leading) {
-                    NavigationLink {
-                        CatchableNavigationView()
-                    } label: {
-                        NavigationCardView(
-                            name: "Catchables",
-                            type: "",
-                            imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
-                            cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.15
-                        )
+            ZStack {
+                Color("ACNHBackground").ignoresSafeArea()
+                ScrollView {
+                    LazyVGrid(columns: gridLayout,
+                              alignment: .leading) {
+                        NavigationLink {
+                            CatchableNavigationView()
+                        } label: {
+                            NavigationCardView(
+                                name: "Catchables",
+                                type: "",
+                                imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
+                                cardColor: Color("ACNHCardBackground"),
+                                scrimTransparency: 0.15
+                            )
+                        }
+                        NavigationLink {
+                            VillagersListView()
+                        } label: {
+                            NavigationCardView(
+                                name: "Villagers",
+                                type: "",
+                                imgUrl: "https://acnhcdn.com/latest/NpcIcon/cat18.png",
+                                cardColor: Color("ACNHCardBackground"),
+                                scrimTransparency: 0.15
+                            )
+                        }
                     }
-                    NavigationLink {
-                        VillagersListView()
-                    } label: {
-                        NavigationCardView(
-                            name: "Villagers",
-                            type: "",
-                            imgUrl: "https://acnhcdn.com/latest/NpcIcon/cat18.png",
-                            cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.15
-                        )
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Animal Crossing Reference").font(.title)
+                                .foregroundColor(.black)
+                        }
                     }
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Animal Crossing Reference").font(.title)
-                            .foregroundColor(.white)
-                            .shadow(color: .black, radius: 1.0)
-                    }
-                }
-            }
-            .background(Color("ACNHBackground"))
+            .accentColor(.black)
         }
-        .accentColor(.white)
     }
 }
 
