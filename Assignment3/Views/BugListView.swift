@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BugListView: View {
-    @StateObject var BugVM = BugViewModel()
+    @StateObject var bugVM = BugViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
 
     let BugIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/Bug"
@@ -17,25 +17,25 @@ struct BugListView: View {
         ZStack {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
-                Toggle("Currently Available", isOn: $BugVM.currentlyAvailableToggle)
+                Toggle("Currently Available", isOn: $bugVM.currentlyAvailableToggle)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
                 List {
-                    ForEach(BugVM.searchResults) { Bug in
+                    ForEach(bugVM.searchResults) { bug in
                         NavigationLink {
-                            BugDetail(Bug: Bug)
+                            BugDetail(Bug: bug)
                         } label: {
                             HStack {
-                                Image(systemName: BugVM.favoriteBug
-                                    .contains(where: { $0.id == Bug.id }) ? "star.fill" : "star")
+                                Image(systemName: bugVM.favoriteBug
+                                    .contains(where: { $0.id == bug.id }) ? "star.fill" : "star")
                                 .foregroundColor(.white)
                                 .onTapGesture {
-                                    BugVM.toggleFavorite(Bug: Bug)
+                                    bugVM.toggleFavorite(Bug: bug)
                                 }
-                                IconView(url: Bug.image_url, frameWidth: 50, frameHeight: 50)
-                                Text(Bug.name.capitalized)
+                                IconView(url: bug.image_url, frameWidth: 50, frameHeight: 50)
+                                Text(bug.name.capitalized)
                                     .foregroundColor(.white)
                             }
                         }
@@ -48,31 +48,32 @@ struct BugListView: View {
                                 )
                                 .padding(5)
                         )
+                        .listRowSeparator(.hidden)
                     }
                 }
                 .task {
-                    await BugVM.fetchData()
+                    await bugVM.fetchData()
                 }
-                .alert(isPresented: $BugVM.hasError, error: BugVM.error) {
+                .alert(isPresented: $bugVM.hasError, error: bugVM.error) {
                     Text("Error.")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .listStyle(.plain)
-                .blendMode(BugVM.searchResults.isEmpty ? .destinationOver : .normal)
+                .blendMode(bugVM.searchResults.isEmpty ? .destinationOver : .normal)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .navigationTitle("Bugs")
-                .searchable(text: $BugVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .searchable(text: $bugVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
             }
             .onAppear {
-                BugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+                bugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
             }
             .background(Color("ACNHBackground"))
             .padding(5)
             .navigationBarItems(trailing: Button(action: {
-                BugVM.isFavoritesOnly.toggle()
+                bugVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
-                Image(systemName: BugVM.isFavoritesOnly ? "star.fill" : "star")
+                Image(systemName: bugVM.isFavoritesOnly ? "star.fill" : "star")
                     .foregroundColor(.white)
             })
         }
