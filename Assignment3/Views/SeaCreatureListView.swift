@@ -19,13 +19,11 @@ struct SeaCreatureListView: View {
             VStack {
                 Toggle("Currently Available", isOn: $seaCreatureVM.currentlyAvailableToggle)
                     .foregroundColor(Color("ACNHText"))
-                    .fontWeight(.bold)
-                    .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
                 List {
                     ForEach(seaCreatureVM.searchResults) { seaCreature in
                         NavigationLink {
-                            SeaCreatureDetail(SeaCreature: seaCreature)
+                            SeaCreatureDetail(seaCreature: seaCreature)
                         } label: {
                             HStack {
                                 Image(systemName: seaCreatureVM.favoriteSeaCreature
@@ -42,10 +40,6 @@ struct SeaCreatureListView: View {
                         .listRowBackground(
                             Capsule()
                                 .foregroundColor(Color("ACNHCardBackground"))
-                                .overlay(
-                                    Capsule()
-                                        .foregroundColor(Color.black.opacity(0.2))
-                                )
                                 .padding(5)
                         )
                         .listRowSeparator(.hidden)
