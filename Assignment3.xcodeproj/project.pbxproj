@@ -13,7 +13,9 @@
 		4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD129C148BF00A78C4E /* VillagerDetail.swift */; };
 		4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD329C14C7D00A78C4E /* ImageCardView.swift */; };
 		4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */; };
+		4271336C29F0898200917250 /* NavigationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271336B29F0898200917250 /* NavigationCardView.swift */; };
 		427FAF0C29E3C67600D32093 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 427FAF0B29E3C67600D32093 /* Kingfisher */; };
+		4280B28629F10683004EA792 /* CatchableNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280B28529F10683004EA792 /* CatchableNavigationView.swift */; };
 		4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4285CC6C29C2E317008E7631 /* VillagersListView.swift */; };
 		4296DF7229C8198E006978BA /* FishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7129C8198E006978BA /* FishModel.swift */; };
 		4296DF7429C81F03006978BA /* FishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7329C81F03006978BA /* FishViewModel.swift */; };
@@ -43,6 +45,8 @@
 		4242CAD129C148BF00A78C4E /* VillagerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagerDetail.swift; sourceTree = "<group>"; };
 		4242CAD329C14C7D00A78C4E /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
 		4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagersViewModel.swift; sourceTree = "<group>"; };
+		4271336B29F0898200917250 /* NavigationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCardView.swift; sourceTree = "<group>"; };
+		4280B28529F10683004EA792 /* CatchableNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableNavigationView.swift; sourceTree = "<group>"; };
 		4285CC6C29C2E317008E7631 /* VillagersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagersListView.swift; sourceTree = "<group>"; };
 		4296DF7129C8198E006978BA /* FishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishModel.swift; sourceTree = "<group>"; };
 		4296DF7329C81F03006978BA /* FishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishViewModel.swift; sourceTree = "<group>"; };
@@ -106,17 +110,19 @@
 			isa = PBXGroup;
 			children = (
 				ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */,
-				4242CAD129C148BF00A78C4E /* VillagerDetail.swift */,
+				42D671A729EFB151006D4AD9 /* BugListView.swift */,
+				42D671A929EFB28A006D4AD9 /* BugDetail.swift */,
 				4242CAD329C14C7D00A78C4E /* ImageCardView.swift */,
-				4285CC6C29C2E317008E7631 /* VillagersListView.swift */,
 				4296DF7529C82034006978BA /* FishDetail.swift */,
 				4296DF7729C8204E006978BA /* FishListView.swift */,
 				4296DF7929C82745006978BA /* NavigationView.swift */,
 				42F7AC5729E53C450014F994 /* IconView.swift */,
-				42D671A729EFB151006D4AD9 /* BugListView.swift */,
-				42D671A929EFB28A006D4AD9 /* BugDetail.swift */,
 				42D671AF29EFB7E1006D4AD9 /* SeaCreatureListView.swift */,
 				42D671B129EFB80B006D4AD9 /* SeaCreatureDetail.swift */,
+				4271336B29F0898200917250 /* NavigationCardView.swift */,
+				4285CC6C29C2E317008E7631 /* VillagersListView.swift */,
+				4242CAD129C148BF00A78C4E /* VillagerDetail.swift */,
+				4280B28529F10683004EA792 /* CatchableNavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,8 +248,10 @@
 				42D671AE29EFB7B9006D4AD9 /* SeaCreatureViewModel.swift in Sources */,
 				4296DF7629C82034006978BA /* FishDetail.swift in Sources */,
 				42F7AC5829E53C450014F994 /* IconView.swift in Sources */,
+				4280B28629F10683004EA792 /* CatchableNavigationView.swift in Sources */,
 				42D671A629EFB0A3006D4AD9 /* BugViewModel.swift in Sources */,
 				42D671A829EFB151006D4AD9 /* BugListView.swift in Sources */,
+				4271336C29F0898200917250 /* NavigationCardView.swift in Sources */,
 				4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */,
 				42D671AA29EFB28A006D4AD9 /* BugDetail.swift in Sources */,
 				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,

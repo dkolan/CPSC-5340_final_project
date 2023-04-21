@@ -8,54 +8,82 @@
 import SwiftUI
 
 struct BugListView: View {
-    @ObservedObject var BugVM = BugViewModel()
+    @StateObject var bugVM = BugViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
 
     let BugIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/Bug"
 
     var body: some View {
-        VStack {
-            Toggle("Currently Available", isOn: $BugVM.currentlyAvailableToggle)
-                .padding([.leading, .trailing], 20)
-            List {
-                ForEach(BugVM.searchResults) { Bug in
-                    NavigationLink {
-                        BugDetail(Bug: Bug)
-                    } label: {
-                        HStack {
-                            Image(systemName: BugVM.favoriteBug
-                                .contains(where: { $0.id == Bug.id }) ? "star.fill" : "star")
-                                .foregroundColor(.yellow)
+        ZStack {
+            Color("ACNHBackground").ignoresSafeArea()
+            VStack {
+                Toggle("Currently Available", isOn: $bugVM.currentlyAvailableToggle)
+                    .foregroundColor(Color("ACNHText"))
+                    .padding([.leading, .trailing], 20)
+                List {
+                    ForEach(bugVM.searchResults) { bug in
+                        NavigationLink {
+                            BugDetail(Bug: bug)
+                        } label: {
+                            HStack {
+                                Image(systemName: bugVM.favoriteBug
+                                    .contains(where: { $0.id == bug.id }) ? "star.fill" : "star")
+                                .foregroundColor(Color("ACNHText"))
                                 .onTapGesture {
-                                    BugVM.toggleFavorite(Bug: Bug)
+                                    bugVM.toggleFavorite(Bug: bug)
                                 }
-                            IconView(url: Bug.image_url, frameWidth: 50, frameHeight: 50)
-                            Text(Bug.name.capitalized)
+                                IconView(url: bug.image_url, frameWidth: 50, frameHeight: 50)
+                                Text(bug.name.capitalized)
+                                    .foregroundColor(Color("ACNHText"))
+                            }
                         }
+                        .listRowBackground(
+                            Capsule()
+                                .foregroundColor(Color("ACNHCardBackground"))
+                                .overlay(
+                                    Capsule()
+                                        .foregroundColor(Color.black.opacity(0.2))
+                                )
+                                .padding(5)
+                        )
+                        .listRowSeparator(.hidden)
+                    }
+                }
+                .task {
+                    await bugVM.fetchData()
+                }
+                .alert(isPresented: $bugVM.hasError, error: bugVM.error) {
+                    Text("Error.")
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .listStyle(.plain)
+                .blendMode(bugVM.searchResults.isEmpty ? .destinationOver : .normal)
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .navigationTitle("Bugs")
+                .foregroundColor(Color("ACNHText"))
+                .searchable(text: $bugVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            }
+            .onAppear {
+                bugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+            }
+            .background(Color("ACNHBackground"))
+            .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Bugs").font(.title)
+                            .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
-            .task {
-                await BugVM.fetchData()
-            }
-            .listStyle(.grouped)
-            .navigationTitle("Bugs")
-            .alert(isPresented: $BugVM.hasError, error: BugVM.error) {
-                Text("Error.")
-            }
-            .searchable(text: $BugVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .navigationBarItems(trailing: Button(action: {
+                bugVM.isFavoritesOnly.toggle()
+            }) {
+                Text("Favorites")
+                Image(systemName: bugVM.isFavoritesOnly ? "star.fill" : "star")
+                    .foregroundColor(Color("ACNHText"))
+            })
         }
-        .onAppear {
-            BugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
-        }
-        .padding(5)
-        .navigationBarItems(trailing: Button(action: {
-            BugVM.isFavoritesOnly.toggle()
-        }) {
-            Text("Favorites")
-            Image(systemName: BugVM.isFavoritesOnly ? "star.fill" : "star")
-                .foregroundColor(.yellow)
-        })
     }
 }
 

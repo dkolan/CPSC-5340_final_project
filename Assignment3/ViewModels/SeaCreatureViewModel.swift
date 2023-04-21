@@ -45,7 +45,6 @@ class SeaCreatureViewModel : ObservableObject {
                     return
                 }
                 self.SeaCreatureData = results.sorted { $0.name.capitalized < $1.name.capitalized}
-                print(SeaCreatureData[0])
             } catch {
                 self.hasError.toggle()
                 self.error = SeaCreatureModelError.customError(error: error)

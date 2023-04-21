@@ -8,54 +8,83 @@
 import SwiftUI
 
 struct SeaCreatureListView: View {
-    @ObservedObject var SeaCreatureVM = SeaCreatureViewModel()
+    @StateObject var seaCreatureVM = SeaCreatureViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
 
-    let SeaCreatureIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/SeaCreature"
+    let seaCreatureIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/SeaCreature"
 
     var body: some View {
-        VStack {
-            Toggle("Currently Available", isOn: $SeaCreatureVM.currentlyAvailableToggle)
-                .padding([.leading, .trailing], 20)
-            List {
-                ForEach(SeaCreatureVM.searchResults) { SeaCreature in
-                    NavigationLink {
-                        SeaCreatureDetail(SeaCreature: SeaCreature)
-                    } label: {
-                        HStack {
-                            Image(systemName: SeaCreatureVM.favoriteSeaCreature
-                                .contains(where: { $0.id == SeaCreature.id }) ? "star.fill" : "star")
-                                .foregroundColor(.yellow)
+        ZStack {
+            Color("ACNHBackground").ignoresSafeArea()
+            VStack {
+                Toggle("Currently Available", isOn: $seaCreatureVM.currentlyAvailableToggle)
+                    .foregroundColor(Color("ACNHText"))
+                    .fontWeight(.bold)
+                    .shadow(radius: 1.0)
+                    .padding([.leading, .trailing], 20)
+                List {
+                    ForEach(seaCreatureVM.searchResults) { seaCreature in
+                        NavigationLink {
+                            SeaCreatureDetail(SeaCreature: seaCreature)
+                        } label: {
+                            HStack {
+                                Image(systemName: seaCreatureVM.favoriteSeaCreature
+                                    .contains(where: { $0.id == seaCreature.id }) ? "star.fill" : "star")
+                                .foregroundColor(Color("ACNHText"))
                                 .onTapGesture {
-                                    SeaCreatureVM.toggleFavorite(SeaCreature: SeaCreature)
+                                    seaCreatureVM.toggleFavorite(SeaCreature: seaCreature)
                                 }
-                            IconView(url: SeaCreature.image_url, frameWidth: 50, frameHeight: 50)
-                            Text(SeaCreature.name.capitalized)
+                                IconView(url: seaCreature.image_url, frameWidth: 50, frameHeight: 50)
+                                Text(seaCreature.name.capitalized)
+                                    .foregroundColor(Color("ACNHText"))
+                            }
                         }
+                        .listRowBackground(
+                            Capsule()
+                                .foregroundColor(Color("ACNHCardBackground"))
+                                .overlay(
+                                    Capsule()
+                                        .foregroundColor(Color.black.opacity(0.2))
+                                )
+                                .padding(5)
+                        )
+                        .listRowSeparator(.hidden)
+                    }
+                }
+                .task {
+                    await seaCreatureVM.fetchData()
+                }
+                .alert(isPresented: $seaCreatureVM.hasError, error: seaCreatureVM.error) {
+                    Text("Error.")
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .listStyle(.plain)
+                .blendMode(seaCreatureVM.searchResults.isEmpty ? .destinationOver : .normal)
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .navigationTitle("Sea Creatures")
+                .searchable(text: $seaCreatureVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            }
+            .onAppear {
+                seaCreatureVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+            }
+            .background(Color("ACNHBackground"))
+            .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Sea Creatures").font(.title)
+                            .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
-            .task {
-                await SeaCreatureVM.fetchData()
-            }
-            .listStyle(.grouped)
-            .navigationTitle("SeaCreatures")
-            .alert(isPresented: $SeaCreatureVM.hasError, error: SeaCreatureVM.error) {
-                Text("Error.")
-            }
-            .searchable(text: $SeaCreatureVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .navigationBarItems(trailing: Button(action: {
+                seaCreatureVM.isFavoritesOnly.toggle()
+            }) {
+                Text("Favorites")
+                Image(systemName: seaCreatureVM.isFavoritesOnly ? "star.fill" : "star")
+                    .foregroundColor(Color("ACNHText"))
+            })
         }
-        .onAppear {
-            SeaCreatureVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
-        }
-        .padding(5)
-        .navigationBarItems(trailing: Button(action: {
-            SeaCreatureVM.isFavoritesOnly.toggle()
-        }) {
-            Text("Favorites")
-            Image(systemName: SeaCreatureVM.isFavoritesOnly ? "star.fill" : "star")
-                .foregroundColor(.yellow)
-        })
     }
 }
 

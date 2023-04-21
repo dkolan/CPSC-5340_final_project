@@ -45,7 +45,6 @@ class BugViewModel : ObservableObject {
                     return
                 }
                 self.BugData = results.sorted { $0.name.capitalized < $1.name.capitalized}
-                print(BugData[0])
             } catch {
                 self.hasError.toggle()
                 self.error = BugModelError.customError(error: error)
