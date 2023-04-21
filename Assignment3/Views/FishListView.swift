@@ -19,8 +19,6 @@ struct FishListView: View {
             VStack {
                 Toggle("Currently Available", isOn: $fishVM.currentlyAvailableToggle)
                     .foregroundColor(Color("ACNHText"))
-                    .fontWeight(.bold)
-                    .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
                 List {
                     ForEach(fishVM.searchResults) { fish in
@@ -42,10 +40,6 @@ struct FishListView: View {
                         .listRowBackground(
                             Capsule()
                                 .foregroundColor(Color("ACNHCardBackground"))
-                                .overlay(
-                                    Capsule()
-                                        .foregroundColor(Color.black.opacity(0.2))
-                                )
                                 .padding(5)
                         )
                         .listRowSeparator(.hidden)
