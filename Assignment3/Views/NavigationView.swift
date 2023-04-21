@@ -47,12 +47,12 @@ struct NavigationView: View {
                     ToolbarItem(placement: .principal) {
                         HStack {
                             Text("Animal Crossing Reference").font(.title)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("ACNHText"))
                         }
                     }
                 }
             }
-            .tint(.white)
+            .tint(Color("ACNHText"))
         }
     }
 }

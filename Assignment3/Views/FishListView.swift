@@ -18,7 +18,7 @@ struct FishListView: View {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 Toggle("Currently Available", isOn: $fishVM.currentlyAvailableToggle)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
                     .fontWeight(.bold)
                     .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
@@ -30,13 +30,13 @@ struct FishListView: View {
                             HStack {
                                 Image(systemName: fishVM.favoriteFish
                                     .contains(where: { $0.id == fish.id }) ? "star.fill" : "star")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("ACNHText"))
                                 .onTapGesture {
                                     fishVM.toggleFavorite(fish: fish)
                                 }
                                 IconView(url: fish.image_url, frameWidth: 50, frameHeight: 50)
                                 Text(fish.name.capitalized)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("ACNHText"))
                             }
                         }
                         .listRowBackground(
@@ -70,12 +70,20 @@ struct FishListView: View {
             }
             .background(Color("ACNHBackground"))
             .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Fish").font(.title)
+                            .foregroundColor(Color("ACNHText"))
+                    }
+                }
+            }
             .navigationBarItems(trailing: Button(action: {
                 fishVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
                 Image(systemName: fishVM.isFavoritesOnly ? "star.fill" : "star")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
             })
         }
     }

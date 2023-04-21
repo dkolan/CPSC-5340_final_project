@@ -18,7 +18,7 @@ struct SeaCreatureListView: View {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 Toggle("Currently Available", isOn: $seaCreatureVM.currentlyAvailableToggle)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
                     .fontWeight(.bold)
                     .shadow(radius: 1.0)
                     .padding([.leading, .trailing], 20)
@@ -30,13 +30,13 @@ struct SeaCreatureListView: View {
                             HStack {
                                 Image(systemName: seaCreatureVM.favoriteSeaCreature
                                     .contains(where: { $0.id == seaCreature.id }) ? "star.fill" : "star")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("ACNHText"))
                                 .onTapGesture {
                                     seaCreatureVM.toggleFavorite(SeaCreature: seaCreature)
                                 }
                                 IconView(url: seaCreature.image_url, frameWidth: 50, frameHeight: 50)
                                 Text(seaCreature.name.capitalized)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("ACNHText"))
                             }
                         }
                         .listRowBackground(
@@ -69,12 +69,20 @@ struct SeaCreatureListView: View {
             }
             .background(Color("ACNHBackground"))
             .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Sea Creatures").font(.title)
+                            .foregroundColor(Color("ACNHText"))
+                    }
+                }
+            }
             .navigationBarItems(trailing: Button(action: {
                 seaCreatureVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
                 Image(systemName: seaCreatureVM.isFavoritesOnly ? "star.fill" : "star")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
             })
         }
     }

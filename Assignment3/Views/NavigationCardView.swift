@@ -34,11 +34,11 @@ struct NavigationCardView: View {
             Spacer()
             Text(name)
                 .font(.title)
-                .foregroundColor(.white)
+                .foregroundColor(Color("ACNHText"))
             if !type.isEmpty {
                 Text(type)
                     .font(.body)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
                     .fixedSize(horizontal: false, vertical: true)
             }
         }

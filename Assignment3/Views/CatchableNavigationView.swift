@@ -55,13 +55,13 @@ struct CatchableNavigationView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("Catchables").font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
             .background(Color("ACNHBackground"))
         }
-        .tint(.white)
+        .tint(Color("ACNHText"))
         .shadow(radius: 1.0)
     }
 }

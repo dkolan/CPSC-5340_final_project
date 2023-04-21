@@ -18,9 +18,7 @@ struct BugListView: View {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 Toggle("Currently Available", isOn: $bugVM.currentlyAvailableToggle)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .shadow(radius: 1.0)
+                    .foregroundColor(Color("ACNHText"))
                     .padding([.leading, .trailing], 20)
                 List {
                     ForEach(bugVM.searchResults) { bug in
@@ -30,13 +28,13 @@ struct BugListView: View {
                             HStack {
                                 Image(systemName: bugVM.favoriteBug
                                     .contains(where: { $0.id == bug.id }) ? "star.fill" : "star")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("ACNHText"))
                                 .onTapGesture {
                                     bugVM.toggleFavorite(Bug: bug)
                                 }
                                 IconView(url: bug.image_url, frameWidth: 50, frameHeight: 50)
                                 Text(bug.name.capitalized)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("ACNHText"))
                             }
                         }
                         .listRowBackground(
@@ -62,6 +60,7 @@ struct BugListView: View {
                 .blendMode(bugVM.searchResults.isEmpty ? .destinationOver : .normal)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .navigationTitle("Bugs")
+                .foregroundColor(Color("ACNHText"))
                 .searchable(text: $bugVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
             }
             .onAppear {
@@ -69,12 +68,20 @@ struct BugListView: View {
             }
             .background(Color("ACNHBackground"))
             .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Bugs").font(.title)
+                            .foregroundColor(Color("ACNHText"))
+                    }
+                }
+            }
             .navigationBarItems(trailing: Button(action: {
                 bugVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
                 Image(systemName: bugVM.isFavoritesOnly ? "star.fill" : "star")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("ACNHText"))
             })
         }
     }
