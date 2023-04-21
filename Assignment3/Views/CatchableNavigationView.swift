@@ -23,7 +23,7 @@ struct CatchableNavigationView: View {
                             type: "",
                             imgUrl: "https://dodo.ac/np/images/8/81/Great_Purple_Emperor_NH_Icon.png",
                             cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.15
+                            scrimTransparency: 0.0
                         )
                     }
                     NavigationLink {
@@ -34,7 +34,7 @@ struct CatchableNavigationView: View {
                             type: "",
                             imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
                             cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.15
+                            scrimTransparency: 0.0
                         )
                     }
                     NavigationLink {
@@ -45,7 +45,7 @@ struct CatchableNavigationView: View {
                             type: "",
                             imgUrl: "https://dodo.ac/np/images/c/ca/Gigas_Giant_Clam_NH_Icon.png",
                             cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.15
+                            scrimTransparency: 0.0
                         )
                     }
                 }

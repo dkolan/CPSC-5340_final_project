@@ -26,7 +26,7 @@ struct NavigationView: View {
                                 type: "",
                                 imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
                                 cardColor: Color("ACNHCardBackground"),
-                                scrimTransparency: 0.15
+                                scrimTransparency: 0.0
                             )
                         }
                         NavigationLink {
@@ -37,7 +37,7 @@ struct NavigationView: View {
                                 type: "",
                                 imgUrl: "https://acnhcdn.com/latest/NpcIcon/cat18.png",
                                 cardColor: Color("ACNHCardBackground"),
-                                scrimTransparency: 0.15
+                                scrimTransparency: 0.0
                             )
                         }
                     }
