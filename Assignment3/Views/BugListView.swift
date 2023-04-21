@@ -23,7 +23,7 @@ struct BugListView: View {
                 List {
                     ForEach(bugVM.searchResults) { bug in
                         NavigationLink {
-                            BugDetail(Bug: bug)
+                            BugDetail(bug: bug)
                         } label: {
                             HStack {
                                 Image(systemName: bugVM.favoriteBug
@@ -40,10 +40,6 @@ struct BugListView: View {
                         .listRowBackground(
                             Capsule()
                                 .foregroundColor(Color("ACNHCardBackground"))
-                                .overlay(
-                                    Capsule()
-                                        .foregroundColor(Color.black.opacity(0.2))
-                                )
                                 .padding(5)
                         )
                         .listRowSeparator(.hidden)
