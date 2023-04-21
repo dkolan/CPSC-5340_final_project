@@ -54,6 +54,7 @@ struct NavigationView: View {
             }
             .tint(Color("ACNHText"))
         }
+        .preferredColorScheme(.light)
     }
 }
 

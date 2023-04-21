@@ -12,25 +12,28 @@ struct VillagerDetail: View {
     let villagerCardBaseUrl = "https://acnhcdn.com/latest/NpcBromide/NpcNml"
     
     var body: some View {
-        VStack {
-            ImageCardView(url: "\(villagerCardBaseUrl)\(villager.id.capitalized).png", frameWidth: 200, frameHeight: 200)
-            List {
-               
-                Text("Birthday: \(villager.birthday_month) \(villager.birthday_day)")
-                Text("Personality: \(villager.personality)")
-                Text("Species: \(villager.species)")
-                Text("Gender: \(villager.gender)")
-                Text("Catchphrase: \(villager.phrase)")
-                Text("Saying: \(villager.quote)")
+        ZStack {
+            Color("ACNHBackground").ignoresSafeArea()
+            VStack {
+                ImageCardView(url: "\(villagerCardBaseUrl)\(villager.id.capitalized).png", frameWidth: 200, frameHeight: 200)
+                ScrollView {
+                    DetailView(icon: "calendar", header: "Birthday:", value: "\(villager.birthday_month) \(villager.birthday_day)", textColor: Color("ACNHText"))
+                    DetailView(icon: "person.crop.circle.badge.questionmark", header: "Personality:", value: villager.personality, textColor: Color("ACNHText"))
+                    DetailView(icon: "pawprint.circle", header: "Species:", value: villager.species, textColor: Color("ACNHText"))
+                    DetailView(icon: "cross.circle", header: "Gender:", value: villager.gender, textColor: Color("ACNHText"))
+                    DetailView(icon: "quote.bubble", header: "Catchphrase:", value: "\"\(villager.phrase)\"", textColor: Color("ACNHText"))
+                    DetailView(icon: "mic", header: "Saying:", value: "\"\(villager.quote)\"", textColor: Color("ACNHText"))
+                    Spacer()
+                }
             }
-            .listStyle(PlainListStyle())
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(villager.name)
-                    .font(.largeTitle.bold())
-                    .accessibilityAddTraits(.isHeader)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(villager.name)
+                        .font(.largeTitle.bold())
+                        .foregroundColor(Color("ACNHText"))
+                        .accessibilityAddTraits(.isHeader)
+                }
             }
         }
      }
