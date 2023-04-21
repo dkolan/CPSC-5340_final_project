@@ -21,40 +21,49 @@ struct FishDetail: View {
         return fish.south.availability_array.map { $0.time }.joined(separator: "; ")
     }
     
-    var body: some View {
-        VStack {
-            ImageCardView(url: fish.render_url, frameWidth: 200, frameHeight: 200)
-            List {
-                if (fishVM.hemisphere == "north") {
-                    Text("Months Available: \(fish.north.months)")
-                    Text("Time Available: \(northTimeString)")
-                 }
-                 else if (fishVM.hemisphere == "south") {
-                     Text("Months Available: \(fish.south.months)")
-                     Text("Time Available: \(southTimeString)")
-                }
-                Text("Location: \(fish.location)")
-                Text("Rarity: \(fish.rarity)")
-                Text("Shadow: \(fish.shadow_size)")
-                Text("Nook Price: \(fish.sell_nook)")
-                Text("CJ's Price: \(fish.sell_cj)")
-            }
-            .listStyle(PlainListStyle())
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(fish.name.capitalized)
-                    .font(.largeTitle.bold())
-                    .accessibilityAddTraits(.isHeader)
-            }
-        }
-        .onAppear {
-            fishVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
-        }
-     }
-}
+    var months: String {
+        return fishVM.hemisphere == "north" ? fish.north.months : fish.south.months
+    }
+    
+    var time: String {
+        return fishVM.hemisphere == "north" ? northTimeString : southTimeString
+    }
 
+    
+    var body: some View {
+        ZStack {
+            Color("ACNHBackground").ignoresSafeArea()
+            VStack {
+                ImageCardView(url: fish.render_url, frameWidth: 200, frameHeight: 200)
+                ScrollView {
+                    DetailView(icon: "calendar", header: "Months Available:", value: months, textColor: Color("ACNHText"))
+                    DetailView(icon: "clock", header: "Time Available:", value: time, textColor: Color("ACNHText"))
+                    DetailView(icon: "location", header: "Location:", value: fish.location, textColor: Color("ACNHText"))
+                    if !fish.rarity.isEmpty {
+                        DetailView(icon: "magnifyingglass", header: "Rarity:", value: fish.rarity, textColor: Color("ACNHText"))
+                    }
+                    DetailView(icon: "binoculars", header: "Shadow:", value: fish.shadow_size, textColor: Color("ACNHText"))
+                    DetailView(icon: "banknote", header: "Nook Price:", value: String(fish.sell_nook), textColor: Color("ACNHText"))
+                    DetailView(icon: "banknote", header: "CJ's Price:", value: String(fish.sell_cj), textColor: Color("ACNHText"))
+                    Spacer()
+                }
+                .listStyle(PlainListStyle())
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(fish.name.capitalized)
+                        .font(.largeTitle.bold())
+                        .foregroundColor(Color("ACNHText"))
+                        .accessibilityAddTraits(.isHeader)
+                }
+            }
+            .onAppear {
+                fishVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+            }
+        }
+    }
+}
 
 //struct FishDetail_Previews: PreviewProvider {
 //    static var previews: some View {
