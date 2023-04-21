@@ -8,53 +8,80 @@
 import SwiftUI
 
 struct VillagersListView: View {
-    @ObservedObject var villagersVM = VillagersViewModel()
+    @StateObject var villagersVM = VillagersViewModel()
     let villagerIconBaseUrl = "https://acnhcdn.com/latest/NpcIcon/"
 
     var body: some View {
-        VStack {
-            Picker("Search By", selection: $villagersVM.searchField) {
-                ForEach(VillagersViewModel.SearchField.allCases, id: \.self) { field in
-                    Text(field.displayName).tag(field)
+        ZStack {
+            Color("ACNHBackground").ignoresSafeArea()
+            VStack {
+                Picker("Search By", selection: $villagersVM.searchField) {
+                    ForEach(VillagersViewModel.SearchField.allCases, id: \.self) { field in
+                        Text(field.displayName).tag(field)
+                            .foregroundColor(Color("ACNHText"))
+                    }
+                }
+                .pickerStyle(.segmented)
+                VStack {
+                    List {
+                        ForEach(villagersVM.searchResults) { villager in
+                            NavigationLink {
+                                VillagerDetail(villager: villager)
+                            } label: {
+                                HStack {
+                                    Image(systemName: villagersVM.favoriteVillagers
+                                        .contains(where: { $0.id == villager.id }) ? "star.fill" : "star")
+                                    .foregroundColor(Color("ACNHText"))
+                                    .onTapGesture {
+                                        villagersVM.toggleFavorite(villager: villager)
+                                    }
+                                    IconView(url: "\(villagerIconBaseUrl)\(villager.id).png", frameWidth: 50, frameHeight: 50)
+                                    Text(villager.name)
+                                        .foregroundColor(Color("ACNHText"))
+                                }
+                            }
+                            .listRowBackground(
+                                Capsule()
+                                    .foregroundColor(Color("ACNHCardBackground"))
+                                    .padding(5)
+                            )
+                            .listRowSeparator(.hidden)
+                        }
+                    }
+                    .task {
+                        await villagersVM.fetchData()
+                    }
+                    .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
+                        Text("Error.")
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("ACNHBackground"))
+                    .listStyle(.plain)
+                    .blendMode(villagersVM.searchResults.isEmpty ? .destinationOver : .normal)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .navigationTitle("Villagers")
+                    .searchable(text: $villagersVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
                 }
             }
-            .pickerStyle(.segmented)
-            List {
-                ForEach(villagersVM.searchResults) { villager in
-                    NavigationLink {
-                        VillagerDetail(villager: villager)
-                    } label: {
-                        HStack {
-                            Image(systemName: villagersVM.favoriteVillagers
-                                .contains(where: { $0.id == villager.id }) ? "star.fill" : "star")
-                                .foregroundColor(.yellow)
-                                .onTapGesture {
-                                    villagersVM.toggleFavorite(villager: villager)
-                                }
-                            IconView(url: "\(villagerIconBaseUrl)\(villager.id).png", frameWidth: 50, frameHeight: 50)
-                            Text(villager.name)
-                        }
+            .background(Color("ACNHBackground"))
+            .padding(5)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Villagers").font(.title)
+                            .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
-            .task {
-                await villagersVM.fetchData()
-            }
-            .listStyle(.grouped)
-            .navigationTitle("Villagers")
-            .alert(isPresented: $villagersVM.hasError, error: villagersVM.error) {
-                Text("Error.")
-            }
-            .searchable(text: $villagersVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .navigationBarItems(trailing: Button(action: {
+                villagersVM.isFavoritesOnly.toggle()
+            }) {
+                Text("Favorites")
+                Image(systemName: villagersVM.isFavoritesOnly ? "star.fill" : "star")
+                    .foregroundColor(Color("ACNHText"))
+            })
         }
-        .padding(5)
-        .navigationBarItems(trailing: Button(action: {
-            villagersVM.isFavoritesOnly.toggle()
-        }) {
-            Text("Favorites")
-            Image(systemName: villagersVM.isFavoritesOnly ? "star.fill" : "star")
-                .foregroundColor(.yellow)
-        })
+        .preferredColorScheme(.dark)
     }
 }
 
