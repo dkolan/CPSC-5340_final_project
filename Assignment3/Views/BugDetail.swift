@@ -70,12 +70,12 @@ struct DetailView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: icon)
-                .foregroundColor(textColor)
-            Text(header)
+            Text("\(Image(systemName: icon)) ")
+                .foregroundColor(textColor) +
+            Text("\(header) ")
                 .font(.headline)
-                .foregroundColor(textColor)
-            Text(value)
+                .foregroundColor(textColor) +
+            Text("\(value) ")
                 .font(.body)
                 .foregroundColor(textColor)
         }
@@ -84,8 +84,8 @@ struct DetailView: View {
         .background(Color("ACNHCardBackground"))
 //        .background(LinearGradient(colors: [Color("ACNHCardBackground"), Color("ACNHBackground")], startPoint: .bottomLeading, endPoint: .trailing))
         .cornerRadius(15)
-        .shadow(color: Color("ACNHCardBackground")
-        .opacity(0.4), radius: 10, x: 0, y: 5)
+//        .shadow(color: Color("ACNHCardBackground")
+//        .opacity(0.4), radius: 10, x: 0, y: 5)
         .padding(.horizontal, 20)
     }
 }
