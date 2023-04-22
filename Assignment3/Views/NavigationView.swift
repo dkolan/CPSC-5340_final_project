@@ -30,6 +30,17 @@ struct NavigationView: View {
                             )
                         }
                         NavigationLink {
+                            CollectableNavigationView()
+                        } label: {
+                            NavigationCardView(
+                                name: "Collectables",
+                                type: "",
+                                imgUrl: "https://dodo.ac/np/images/f/f7/Serene_Painting_NH_Icon.png",
+                                cardColor: Color("ACNHCardBackground"),
+                                scrimTransparency: 0.0
+                            )
+                        }
+                        NavigationLink {
                             VillagersListView()
                         } label: {
                             NavigationCardView(
