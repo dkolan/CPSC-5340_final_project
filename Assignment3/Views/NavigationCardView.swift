@@ -33,7 +33,7 @@ struct NavigationCardView: View {
             }
             Spacer()
             Text(name)
-                .font(.title)
+                .font(.title2)
                 .foregroundColor(Color("ACNHText"))
             if !type.isEmpty {
                 Text(type)

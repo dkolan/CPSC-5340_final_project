@@ -54,7 +54,7 @@ struct CollectableNavigationView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("Catchables").font(.title)
+                        Text("Collectables").font(.title)
                             .foregroundColor(Color("ACNHText"))
                     }
                 }
