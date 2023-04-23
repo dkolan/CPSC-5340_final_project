@@ -49,6 +49,10 @@
 		42C0384C29F5D26C002BAAAC /* AccessoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */; };
 		42C0384F29F5D27F002BAAAC /* AccessoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */; };
 		42C0385029F5D27F002BAAAC /* AccessoriesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */; };
+		42C0385A29F5D52B002BAAAC /* HeadwearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0385929F5D52B002BAAAC /* HeadwearModel.swift */; };
+		42C0385C29F5D532002BAAAC /* HeadwearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0385B29F5D532002BAAAC /* HeadwearViewModel.swift */; };
+		42C0385F29F5D536002BAAAC /* HeadwearListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0385D29F5D536002BAAAC /* HeadwearListView.swift */; };
+		42C0386029F5D536002BAAAC /* HeadwearDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0385E29F5D536002BAAAC /* HeadwearDetail.swift */; };
 		42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165029F4F1A100FE2438 /* TopModel.swift */; };
 		42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165229F4F42F00FE2438 /* TopViewModel.swift */; };
 		42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165429F4F48A00FE2438 /* TopListView.swift */; };
@@ -110,6 +114,10 @@
 		42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesViewModel.swift; sourceTree = "<group>"; };
 		42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesListView.swift; sourceTree = "<group>"; };
 		42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesDetail.swift; sourceTree = "<group>"; };
+		42C0385929F5D52B002BAAAC /* HeadwearModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadwearModel.swift; sourceTree = "<group>"; };
+		42C0385B29F5D532002BAAAC /* HeadwearViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadwearViewModel.swift; sourceTree = "<group>"; };
+		42C0385D29F5D536002BAAAC /* HeadwearListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadwearListView.swift; sourceTree = "<group>"; };
+		42C0385E29F5D536002BAAAC /* HeadwearDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadwearDetail.swift; sourceTree = "<group>"; };
 		42D2165029F4F1A100FE2438 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
 		42D2165229F4F42F00FE2438 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		42D2165429F4F48A00FE2438 /* TopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListView.swift; sourceTree = "<group>"; };
@@ -145,6 +153,7 @@
 		4242CAD029C1221B00A78C4E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42C0385929F5D52B002BAAAC /* HeadwearModel.swift */,
 				42C0384929F5D25C002BAAAC /* AccessoriesModel.swift */,
 				4226D34B29F31F5A00F982F5 /* ArtModel.swift */,
 				42D671A329EFADEE006D4AD9 /* BugModel.swift */,
@@ -163,6 +172,7 @@
 		4242CAD729C194CC00A78C4E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				42C0385B29F5D532002BAAAC /* HeadwearViewModel.swift */,
 				42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */,
 				4226D34D29F323E900F982F5 /* ArtViewModel.swift */,
 				42D671A529EFB0A3006D4AD9 /* BugViewModel.swift */,
@@ -183,6 +193,8 @@
 		42CDF89E29C11DE70080AA77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42C0385E29F5D536002BAAAC /* HeadwearDetail.swift */,
+				42C0385D29F5D536002BAAAC /* HeadwearListView.swift */,
 				42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */,
 				42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */,
 				ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */,
@@ -333,10 +345,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4296DF7429C81F03006978BA /* FishViewModel.swift in Sources */,
+				42C0386029F5D536002BAAAC /* HeadwearDetail.swift in Sources */,
 				42C0382A29F5BFD1002BAAAC /* ShoeViewModel.swift in Sources */,
 				4226D34C29F31F5A00F982F5 /* ArtModel.swift in Sources */,
 				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
 				42C0384229F5D032002BAAAC /* DressUpModel.swift in Sources */,
+				42C0385F29F5D536002BAAAC /* HeadwearListView.swift in Sources */,
 				4226D34E29F323E900F982F5 /* ArtViewModel.swift in Sources */,
 				42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */,
 				42D671B229EFB80B006D4AD9 /* SeaCreatureDetail.swift in Sources */,
@@ -364,6 +378,8 @@
 				42C0384829F5D082002BAAAC /* DressUpDetail.swift in Sources */,
 				42C0384C29F5D26C002BAAAC /* AccessoriesViewModel.swift in Sources */,
 				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,
+				42C0385A29F5D52B002BAAAC /* HeadwearModel.swift in Sources */,
+				42C0385C29F5D532002BAAAC /* HeadwearViewModel.swift in Sources */,
 				4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */,
 				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
 				42D671A429EFADEE006D4AD9 /* BugModel.swift in Sources */,

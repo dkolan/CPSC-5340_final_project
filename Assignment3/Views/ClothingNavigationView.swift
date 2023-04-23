@@ -49,6 +49,17 @@ struct ClothingNavigationView: View {
                         )
                     }
                     NavigationLink {
+                        HeadwearListView()
+                    } label: {
+                        NavigationCardView(
+                            name: "Headwear",
+                            type: "",
+                            imgUrl: "https://dodo.ac/np/images/0/01/Acorn_Knit_Cap_%28Berry_Red%29_NH_Icon.png",
+                            cardColor: Color("ACNHCardBackground"),
+                            scrimTransparency: 0.0
+                        )
+                    }
+                    NavigationLink {
                         TopListView()
                     } label: {
                         NavigationCardView(
