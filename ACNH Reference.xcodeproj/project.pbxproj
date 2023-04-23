@@ -37,6 +37,10 @@
 		4296DF7829C8204E006978BA /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7729C8204E006978BA /* FishListView.swift */; };
 		4296DF7A29C82745006978BA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7929C82745006978BA /* NavigationView.swift */; };
 		4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297632429E7C4A40047D9C1 /* LocationDataManager.swift */; };
+		42C0382829F5BF86002BAAAC /* ShoeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0382729F5BF86002BAAAC /* ShoeModel.swift */; };
+		42C0382A29F5BFD1002BAAAC /* ShoeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0382929F5BFD1002BAAAC /* ShoeViewModel.swift */; };
+		42C0382C29F5BFEF002BAAAC /* ShoeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0382B29F5BFEF002BAAAC /* ShoeListView.swift */; };
+		42C0382E29F5C06F002BAAAC /* ShoeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0382D29F5C06F002BAAAC /* ShoeDetail.swift */; };
 		42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165029F4F1A100FE2438 /* TopModel.swift */; };
 		42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165229F4F42F00FE2438 /* TopViewModel.swift */; };
 		42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165429F4F48A00FE2438 /* TopListView.swift */; };
@@ -86,6 +90,10 @@
 		4296DF7729C8204E006978BA /* FishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListView.swift; sourceTree = "<group>"; };
 		4296DF7929C82745006978BA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		4297632429E7C4A40047D9C1 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		42C0382729F5BF86002BAAAC /* ShoeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeModel.swift; sourceTree = "<group>"; };
+		42C0382929F5BFD1002BAAAC /* ShoeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeViewModel.swift; sourceTree = "<group>"; };
+		42C0382B29F5BFEF002BAAAC /* ShoeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeListView.swift; sourceTree = "<group>"; };
+		42C0382D29F5C06F002BAAAC /* ShoeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetail.swift; sourceTree = "<group>"; };
 		42D2165029F4F1A100FE2438 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
 		42D2165229F4F42F00FE2438 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		42D2165429F4F48A00FE2438 /* TopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListView.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 				424606BC29F4B0270043BFDB /* FossilModel.swift */,
 				42D2165029F4F1A100FE2438 /* TopModel.swift */,
 				42950E7729F5ADD40018A595 /* BottomModel.swift */,
+				42C0382729F5BF86002BAAAC /* ShoeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 				424606BE29F4B20D0043BFDB /* FossilViewModel.swift */,
 				42D2165229F4F42F00FE2438 /* TopViewModel.swift */,
 				42950E7929F5AE9C0018A595 /* BottomViewModel.swift */,
+				42C0382929F5BFD1002BAAAC /* ShoeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,6 +187,8 @@
 				42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */,
 				42950E7B29F5AEE90018A595 /* BottomListView.swift */,
 				42950E7D29F5AF4F0018A595 /* BottomDetail.swift */,
+				42C0382B29F5BFEF002BAAAC /* ShoeListView.swift */,
+				42C0382D29F5C06F002BAAAC /* ShoeDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4296DF7429C81F03006978BA /* FishViewModel.swift in Sources */,
+				42C0382A29F5BFD1002BAAAC /* ShoeViewModel.swift in Sources */,
 				4226D34C29F31F5A00F982F5 /* ArtModel.swift in Sources */,
 				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
 				4226D34E29F323E900F982F5 /* ArtViewModel.swift in Sources */,
@@ -307,6 +320,7 @@
 				4296DF7629C82034006978BA /* FishDetail.swift in Sources */,
 				42F7AC5829E53C450014F994 /* IconView.swift in Sources */,
 				424606BD29F4B0270043BFDB /* FossilModel.swift in Sources */,
+				42C0382E29F5C06F002BAAAC /* ShoeDetail.swift in Sources */,
 				4280B28629F10683004EA792 /* CatchableNavigationView.swift in Sources */,
 				42D671A629EFB0A3006D4AD9 /* BugViewModel.swift in Sources */,
 				42D671A829EFB151006D4AD9 /* BugListView.swift in Sources */,
@@ -328,8 +342,10 @@
 				42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */,
 				42D2165729F4F4BC00FE2438 /* TopDetail.swift in Sources */,
 				42950E7E29F5AF4F0018A595 /* BottomDetail.swift in Sources */,
+				42C0382C29F5BFEF002BAAAC /* ShoeListView.swift in Sources */,
 				4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */,
 				4296DF7229C8198E006978BA /* FishModel.swift in Sources */,
+				42C0382829F5BF86002BAAAC /* ShoeModel.swift in Sources */,
 				42D671B029EFB7E1006D4AD9 /* SeaCreatureListView.swift in Sources */,
 				4296DF7A29C82745006978BA /* NavigationView.swift in Sources */,
 				ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */,
