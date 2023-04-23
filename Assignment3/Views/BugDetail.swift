@@ -61,7 +61,7 @@ struct BugDetail: View {
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             Text(bug.name.capitalized)
-                                .font(.largeTitle.bold())
+                                .font(.title)
                                 .foregroundColor(Color("ACNHText"))
                                 .accessibilityAddTraits(.isHeader)
                         }

@@ -43,7 +43,7 @@ struct VillagerDetail: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text(villager.name)
-                            .font(.largeTitle.bold())
+                            .font(.title)
                             .foregroundColor(Color("ACNHText"))
                             .accessibilityAddTraits(.isHeader)
                     }

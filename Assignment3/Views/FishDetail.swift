@@ -64,7 +64,7 @@ struct FishDetail: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text(fish.name.capitalized)
-                            .font(.largeTitle.bold())
+                            .font(.title)
                             .foregroundColor(Color("ACNHText"))
                             .accessibilityAddTraits(.isHeader)
                     }
