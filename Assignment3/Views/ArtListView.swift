@@ -1,6 +1,6 @@
 //
 //  ArtListView.swift
-//  Assignment3
+//  ACNH Reference
 //
 //  Created by Dan Kolan on 4/21/23.
 //

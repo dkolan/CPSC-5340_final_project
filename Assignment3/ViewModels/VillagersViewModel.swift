@@ -1,6 +1,6 @@
 //
 //  VillagersViewModel.swift
-//  Assignment3
+//  ACNH Reference
 //
 //  Created by Dan Kolan on 3/15/23.
 //
