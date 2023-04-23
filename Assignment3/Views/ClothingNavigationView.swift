@@ -16,6 +16,17 @@ struct ClothingNavigationView: View {
                 LazyVGrid(columns: gridLayout,
                           alignment: .leading) {
                     NavigationLink {
+                        AccessoriesListView()
+                    } label: {
+                        NavigationCardView(
+                            name: "Accessories",
+                            type: "",
+                            imgUrl: "https://dodo.ac/np/images/2/28/3D_Glasses_%28Black%29_NH_Icon.png",
+                            cardColor: Color("ACNHCardBackground"),
+                            scrimTransparency: 0.0
+                        )
+                    }
+                    NavigationLink {
                         BottomListView()
                     } label: {
                         NavigationCardView(
