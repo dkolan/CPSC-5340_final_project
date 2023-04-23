@@ -39,7 +39,6 @@ class FossilViewModel: ObservableObject {
                 guard let results = try JSONDecoder().decode([FossilModel]?.self, from: data) else {
                     self.hasError.toggle()
                     self.error = FossilModelError.decodeError
-                    print(error)
                     return
                 }
                 self.fossilData = results.sorted { $0.name.capitalized < $1.name.capitalized}

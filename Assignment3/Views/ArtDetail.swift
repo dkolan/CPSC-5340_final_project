@@ -27,13 +27,17 @@ struct ArtDetail: View {
                                           frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
                                           frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
                         }
-                        ImageCardView(url: art.real_info.texture_url,
-                                      frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
-                                      frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
-                        if let fakeInfo = art.fake_info {
-                            ImageCardView(url: fakeInfo.texture_url,
+                        if !art.real_info.texture_url.isEmpty {
+                            ImageCardView(url: art.real_info.texture_url,
                                           frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
                                           frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
+                        }
+                        if let fakeInfo = art.fake_info {
+                            if !fakeInfo.texture_url.isEmpty {
+                                ImageCardView(url: fakeInfo.texture_url,
+                                              frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
+                                              frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
+                            }
                         }
                     }
                     .tabViewStyle(.page)
@@ -60,6 +64,7 @@ struct ArtDetail: View {
                         if let fakeInfo = art.fake_info {
                             DetailView(icon: "questionmark.app", header: "Fake Description:", value: fakeInfo.description, textColor: Color("ACNHText"))
                         }
+                        
                         //                    DetailView(icon: "theatermask.and.paintbrush", header: "Type:", value: art.art_type, textColor: Color("ACNHText"))
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
