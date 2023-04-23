@@ -27,6 +27,17 @@ struct ClothingNavigationView: View {
                         )
                     }
                     NavigationLink {
+                        DressUpListView()
+                    } label: {
+                        NavigationCardView(
+                            name: "Dress Ups",
+                            type: "",
+                            imgUrl: "https://dodo.ac/np/images/1/19/Vibrant_Tuxedo_%28Red%29_NH_Icon.png",
+                            cardColor: Color("ACNHCardBackground"),
+                            scrimTransparency: 0.0
+                        )
+                    }
+                    NavigationLink {
                         TopListView()
                     } label: {
                         NavigationCardView(
