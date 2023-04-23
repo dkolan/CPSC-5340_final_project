@@ -31,6 +31,10 @@
 		42950E7A29F5AE9C0018A595 /* BottomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E7929F5AE9C0018A595 /* BottomViewModel.swift */; };
 		42950E7C29F5AEE90018A595 /* BottomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E7B29F5AEE90018A595 /* BottomListView.swift */; };
 		42950E7E29F5AF4F0018A595 /* BottomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E7D29F5AF4F0018A595 /* BottomDetail.swift */; };
+		42950E8029F5B10F0018A595 /* DressUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E7F29F5B10F0018A595 /* DressUpModel.swift */; };
+		42950E8229F5B1580018A595 /* DressUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E8129F5B1580018A595 /* DressUpViewModel.swift */; };
+		42950E8429F5B1740018A595 /* DressUpListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E8329F5B1740018A595 /* DressUpListView.swift */; };
+		42950E8629F5B19F0018A595 /* DressUpDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42950E8529F5B19F0018A595 /* DressUpDetail.swift */; };
 		4296DF7229C8198E006978BA /* FishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7129C8198E006978BA /* FishModel.swift */; };
 		4296DF7429C81F03006978BA /* FishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7329C81F03006978BA /* FishViewModel.swift */; };
 		4296DF7629C82034006978BA /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7529C82034006978BA /* FishDetail.swift */; };
@@ -80,6 +84,10 @@
 		42950E7929F5AE9C0018A595 /* BottomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewModel.swift; sourceTree = "<group>"; };
 		42950E7B29F5AEE90018A595 /* BottomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomListView.swift; sourceTree = "<group>"; };
 		42950E7D29F5AF4F0018A595 /* BottomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomDetail.swift; sourceTree = "<group>"; };
+		42950E7F29F5B10F0018A595 /* DressUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpModel.swift; sourceTree = "<group>"; };
+		42950E8129F5B1580018A595 /* DressUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpViewModel.swift; sourceTree = "<group>"; };
+		42950E8329F5B1740018A595 /* DressUpListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpListView.swift; sourceTree = "<group>"; };
+		42950E8529F5B19F0018A595 /* DressUpDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpDetail.swift; sourceTree = "<group>"; };
 		4296DF7129C8198E006978BA /* FishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishModel.swift; sourceTree = "<group>"; };
 		4296DF7329C81F03006978BA /* FishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishViewModel.swift; sourceTree = "<group>"; };
 		4296DF7529C82034006978BA /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 				424606BC29F4B0270043BFDB /* FossilModel.swift */,
 				42D2165029F4F1A100FE2438 /* TopModel.swift */,
 				42950E7729F5ADD40018A595 /* BottomModel.swift */,
+				42950E7F29F5B10F0018A595 /* DressUpModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 				424606BE29F4B20D0043BFDB /* FossilViewModel.swift */,
 				42D2165229F4F42F00FE2438 /* TopViewModel.swift */,
 				42950E7929F5AE9C0018A595 /* BottomViewModel.swift */,
+				42950E8129F5B1580018A595 /* DressUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,6 +187,8 @@
 				42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */,
 				42950E7B29F5AEE90018A595 /* BottomListView.swift */,
 				42950E7D29F5AF4F0018A595 /* BottomDetail.swift */,
+				42950E8329F5B1740018A595 /* DressUpListView.swift */,
+				42950E8529F5B19F0018A595 /* DressUpDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +311,7 @@
 				4296DF7429C81F03006978BA /* FishViewModel.swift in Sources */,
 				4226D34C29F31F5A00F982F5 /* ArtModel.swift in Sources */,
 				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
+				42950E8229F5B1580018A595 /* DressUpViewModel.swift in Sources */,
 				4226D34E29F323E900F982F5 /* ArtViewModel.swift in Sources */,
 				42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */,
 				42D671B229EFB80B006D4AD9 /* SeaCreatureDetail.swift in Sources */,
@@ -320,13 +333,16 @@
 				4226D35029F3329900F982F5 /* ArtListView.swift in Sources */,
 				4274CDBB29F33D880073B045 /* CollectableNavigationView.swift in Sources */,
 				42950E7C29F5AEE90018A595 /* BottomListView.swift in Sources */,
+				42950E8029F5B10F0018A595 /* DressUpModel.swift in Sources */,
 				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,
 				4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */,
 				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
 				42D671A429EFADEE006D4AD9 /* BugModel.swift in Sources */,
 				42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */,
 				42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */,
+				42950E8629F5B19F0018A595 /* DressUpDetail.swift in Sources */,
 				42D2165729F4F4BC00FE2438 /* TopDetail.swift in Sources */,
+				42950E8429F5B1740018A595 /* DressUpListView.swift in Sources */,
 				42950E7E29F5AF4F0018A595 /* BottomDetail.swift in Sources */,
 				4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */,
 				4296DF7229C8198E006978BA /* FishModel.swift in Sources */,
