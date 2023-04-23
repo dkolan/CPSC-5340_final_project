@@ -45,6 +45,10 @@
 		42C0384429F5D04E002BAAAC /* DressUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384329F5D04E002BAAAC /* DressUpViewModel.swift */; };
 		42C0384629F5D06C002BAAAC /* DressUpListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384529F5D06C002BAAAC /* DressUpListView.swift */; };
 		42C0384829F5D082002BAAAC /* DressUpDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384729F5D082002BAAAC /* DressUpDetail.swift */; };
+		42C0384A29F5D25C002BAAAC /* AccessoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384929F5D25C002BAAAC /* AccessoriesModel.swift */; };
+		42C0384C29F5D26C002BAAAC /* AccessoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */; };
+		42C0384F29F5D27F002BAAAC /* AccessoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */; };
+		42C0385029F5D27F002BAAAC /* AccessoriesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */; };
 		42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165029F4F1A100FE2438 /* TopModel.swift */; };
 		42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165229F4F42F00FE2438 /* TopViewModel.swift */; };
 		42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165429F4F48A00FE2438 /* TopListView.swift */; };
@@ -102,6 +106,10 @@
 		42C0384329F5D04E002BAAAC /* DressUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpViewModel.swift; sourceTree = "<group>"; };
 		42C0384529F5D06C002BAAAC /* DressUpListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpListView.swift; sourceTree = "<group>"; };
 		42C0384729F5D082002BAAAC /* DressUpDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressUpDetail.swift; sourceTree = "<group>"; };
+		42C0384929F5D25C002BAAAC /* AccessoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesModel.swift; sourceTree = "<group>"; };
+		42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesViewModel.swift; sourceTree = "<group>"; };
+		42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesListView.swift; sourceTree = "<group>"; };
+		42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoriesDetail.swift; sourceTree = "<group>"; };
 		42D2165029F4F1A100FE2438 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
 		42D2165229F4F42F00FE2438 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		42D2165429F4F48A00FE2438 /* TopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListView.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 		4242CAD029C1221B00A78C4E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42C0384929F5D25C002BAAAC /* AccessoriesModel.swift */,
 				4226D34B29F31F5A00F982F5 /* ArtModel.swift */,
 				42D671A329EFADEE006D4AD9 /* BugModel.swift */,
 				4296DF7129C8198E006978BA /* FishModel.swift */,
@@ -154,6 +163,7 @@
 		4242CAD729C194CC00A78C4E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				42C0384B29F5D26C002BAAAC /* AccessoriesViewModel.swift */,
 				4226D34D29F323E900F982F5 /* ArtViewModel.swift */,
 				42D671A529EFB0A3006D4AD9 /* BugViewModel.swift */,
 				4296DF7329C81F03006978BA /* FishViewModel.swift */,
@@ -173,34 +183,36 @@
 		42CDF89E29C11DE70080AA77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42C0384E29F5D27F002BAAAC /* AccessoriesDetail.swift */,
+				42C0384D29F5D27F002BAAAC /* AccessoriesListView.swift */,
 				ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */,
 				4226D35129F332E700F982F5 /* ArtDetail.swift */,
 				4226D34F29F3329900F982F5 /* ArtListView.swift */,
+				42950E7D29F5AF4F0018A595 /* BottomDetail.swift */,
+				42950E7B29F5AEE90018A595 /* BottomListView.swift */,
 				42D671A929EFB28A006D4AD9 /* BugDetail.swift */,
 				42D671A729EFB151006D4AD9 /* BugListView.swift */,
 				4280B28529F10683004EA792 /* CatchableNavigationView.swift */,
+				42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */,
 				4274CDBA29F33D880073B045 /* CollectableNavigationView.swift */,
+				42C0384729F5D082002BAAAC /* DressUpDetail.swift */,
+				42C0384529F5D06C002BAAAC /* DressUpListView.swift */,
 				4296DF7529C82034006978BA /* FishDetail.swift */,
 				4296DF7729C8204E006978BA /* FishListView.swift */,
+				424606C229F4B5140043BFDB /* FossilDetail.swift */,
+				424606C029F4B4210043BFDB /* FossilListView.swift */,
 				42F7AC5729E53C450014F994 /* IconView.swift */,
 				4242CAD329C14C7D00A78C4E /* ImageCardView.swift */,
 				4271336B29F0898200917250 /* NavigationCardView.swift */,
 				4296DF7929C82745006978BA /* NavigationView.swift */,
 				42D671B129EFB80B006D4AD9 /* SeaCreatureDetail.swift */,
 				42D671AF29EFB7E1006D4AD9 /* SeaCreatureListView.swift */,
+				42C0382D29F5C06F002BAAAC /* ShoeDetail.swift */,
+				42C0382B29F5BFEF002BAAAC /* ShoeListView.swift */,
+				42D2165629F4F4BC00FE2438 /* TopDetail.swift */,
+				42D2165429F4F48A00FE2438 /* TopListView.swift */,
 				4242CAD129C148BF00A78C4E /* VillagerDetail.swift */,
 				4285CC6C29C2E317008E7631 /* VillagersListView.swift */,
-				424606C029F4B4210043BFDB /* FossilListView.swift */,
-				424606C229F4B5140043BFDB /* FossilDetail.swift */,
-				42D2165429F4F48A00FE2438 /* TopListView.swift */,
-				42D2165629F4F4BC00FE2438 /* TopDetail.swift */,
-				42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */,
-				42950E7B29F5AEE90018A595 /* BottomListView.swift */,
-				42950E7D29F5AF4F0018A595 /* BottomDetail.swift */,
-				42C0382B29F5BFEF002BAAAC /* ShoeListView.swift */,
-				42C0382D29F5C06F002BAAAC /* ShoeDetail.swift */,
-				42C0384529F5D06C002BAAAC /* DressUpListView.swift */,
-				42C0384729F5D082002BAAAC /* DressUpDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +352,7 @@
 				424606C329F4B5140043BFDB /* FossilDetail.swift in Sources */,
 				424606BF29F4B20D0043BFDB /* FossilViewModel.swift in Sources */,
 				4271336C29F0898200917250 /* NavigationCardView.swift in Sources */,
+				42C0385029F5D27F002BAAAC /* AccessoriesDetail.swift in Sources */,
 				4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */,
 				42950E7829F5ADD40018A595 /* BottomModel.swift in Sources */,
 				42950E7A29F5AE9C0018A595 /* BottomViewModel.swift in Sources */,
@@ -349,6 +362,7 @@
 				4274CDBB29F33D880073B045 /* CollectableNavigationView.swift in Sources */,
 				42950E7C29F5AEE90018A595 /* BottomListView.swift in Sources */,
 				42C0384829F5D082002BAAAC /* DressUpDetail.swift in Sources */,
+				42C0384C29F5D26C002BAAAC /* AccessoriesViewModel.swift in Sources */,
 				4242CAD229C148BF00A78C4E /* VillagerDetail.swift in Sources */,
 				4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */,
 				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
@@ -358,10 +372,12 @@
 				42D2165729F4F4BC00FE2438 /* TopDetail.swift in Sources */,
 				42950E7E29F5AF4F0018A595 /* BottomDetail.swift in Sources */,
 				42C0382C29F5BFEF002BAAAC /* ShoeListView.swift in Sources */,
+				42C0384F29F5D27F002BAAAC /* AccessoriesListView.swift in Sources */,
 				42C0384429F5D04E002BAAAC /* DressUpViewModel.swift in Sources */,
 				4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */,
 				4296DF7229C8198E006978BA /* FishModel.swift in Sources */,
 				42C0382829F5BF86002BAAAC /* ShoeModel.swift in Sources */,
+				42C0384A29F5D25C002BAAAC /* AccessoriesModel.swift in Sources */,
 				42D671B029EFB7E1006D4AD9 /* SeaCreatureListView.swift in Sources */,
 				4296DF7A29C82745006978BA /* NavigationView.swift in Sources */,
 				ACF5E04229BE957F00DD981A /* AnimalCrossingVillagers.swift in Sources */,
