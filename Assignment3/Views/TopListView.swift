@@ -1,5 +1,5 @@
 //
-//  FossilListView.swift
+//  TopListView.swift
 //  ACNH Reference
 //
 //  Created by Dan Kolan on 4/22/23.
@@ -7,30 +7,28 @@
 
 import SwiftUI
 
-struct FossilListView: View {
-    @StateObject var fossilVM = FossilViewModel()
+struct TopListView: View {
+    @StateObject var topVM = TopViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
-
-    let FossilIconBaseUrl = "https://acnhcdn.com/latest/MenuIcon/Fossil"
 
     var body: some View {
         ZStack {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 List {
-                    ForEach(fossilVM.searchResults) { fossil in
+                    ForEach(topVM.searchResults) { top in
+//                        var p1 = print(topVM.searchResults[0].variations[0].imageUrl)
                         NavigationLink {
-                            FossilDetail(fossil: fossil)
+                            TopDetail(top: top)
                         } label: {
                             HStack {
-                                Image(systemName: fossilVM.favoriteFossil
-                                    .contains(where: { $0.id == fossil.id }) ? "star.fill" : "star")
-                                .foregroundColor(Color("ACNHText"))
+                                Image(systemName: topVM.favoriteTop
+                                    .contains(where: { $0.id == top.id }) ? "star.fill" : "star")
                                 .onTapGesture {
-                                    fossilVM.toggleFavorite(fossil: fossil)
+                                    topVM.toggleFavorite(top: top)
                                 }
-                                IconView(url: fossil.image_url, frameWidth: 50, frameHeight: 50)
-                                Text(fossil.name.capitalized)
+                                IconView(url: top.variations[0].imageUrl, frameWidth: 50, frameHeight: 50)
+                                Text(top.name.capitalized)
                                     .foregroundColor(Color("ACNHText"))
                             }
                         }
@@ -43,42 +41,42 @@ struct FossilListView: View {
                     }
                 }
                 .task {
-                    await fossilVM.fetchData()
+                    await topVM.fetchData()
                 }
-                .alert(isPresented: $fossilVM.hasError, error: fossilVM.error) {
+                .alert(isPresented: $topVM.hasError, error: topVM.error) {
                     Text("Error.")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .listStyle(.plain)
-                .blendMode(fossilVM.searchResults.isEmpty ? .destinationOver : .normal)
+                .blendMode(topVM.searchResults.isEmpty ? .destinationOver : .normal)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .navigationTitle("Fossils")
+                .navigationTitle("Tops")
                 .foregroundColor(Color("ACNHText"))
-                .searchable(text: $fossilVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .searchable(text: $topVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
             }
             .background(Color("ACNHBackground"))
             .padding(5)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("Fossils").font(.title)
+                        Text("Tops").font(.title)
                             .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
             .navigationBarItems(trailing: Button(action: {
-                fossilVM.isFavoritesOnly.toggle()
+                topVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
-                Image(systemName: fossilVM.isFavoritesOnly ? "star.fill" : "star")
+                Image(systemName: topVM.isFavoritesOnly ? "star.fill" : "star")
                     .foregroundColor(Color("ACNHText"))
             })
         }
     }
 }
 
-struct FossilListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FossilListView()
-    }
-}
+//struct TopListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TopListView()
+//    }
+//}

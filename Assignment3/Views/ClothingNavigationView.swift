@@ -1,13 +1,13 @@
 //
-//  CollectableNavigationView.swift
+//  ClothingNavigationView.swift
 //  ACNH Reference
 //
-//  Created by Dan Kolan on 4/21/23.
+//  Created by Dan Kolan on 4/20/23.
 //
 
 import SwiftUI
 
-struct CollectableNavigationView: View {
+struct ClothingNavigationView: View {
     @State var gridLayout: [GridItem] = [GridItem(.adaptive(minimum: 180))]
 
     var body: some View {
@@ -16,27 +16,27 @@ struct CollectableNavigationView: View {
                 LazyVGrid(columns: gridLayout,
                           alignment: .leading) {
                     NavigationLink {
-                        ArtListView()
+                        TopListView()
                     } label: {
                         NavigationCardView(
-                            name: "Art",
+                            name: "Tops",
                             type: "",
-                            imgUrl: "https://dodo.ac/np/images/f/f7/Serene_Painting_NH_Icon.png",
+                            imgUrl: "https://dodo.ac/np/images/8/84/Acid-Washed_Jacket_%28Blue%29_NH_Icon.png",
                             cardColor: Color("ACNHCardBackground"),
                             scrimTransparency: 0.0
                         )
                     }
-                    NavigationLink {
-                        FossilListView()
-                    } label: {
-                        NavigationCardView(
-                            name: "Fossils",
-                            type: "",
-                            imgUrl: "https://dodo.ac/np/images/7/7b/Spino_Skull_NH_Icon.png",
-                            cardColor: Color("ACNHCardBackground"),
-                            scrimTransparency: 0.0
-                        )
-                    }
+//                    NavigationLink {
+//                        FishListView()
+//                    } label: {
+//                        NavigationCardView(
+//                            name: "Fish",
+//                            type: "",
+//                            imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
+//                            cardColor: Color("ACNHCardBackground"),
+//                            scrimTransparency: 0.0
+//                        )
+//                    }
 //                    NavigationLink {
 //                        SeaCreatureListView()
 //                    } label: {
@@ -54,8 +54,7 @@ struct CollectableNavigationView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("Collectables")
-                            .font(.title)
+                        Text("Clothing").font(.title)
                             .foregroundColor(Color("ACNHText"))
                     }
                 }
@@ -66,9 +65,8 @@ struct CollectableNavigationView: View {
         .shadow(radius: 1.0)
     }
 }
-
-struct CollectableNavigationView_Previews: PreviewProvider {
+struct ClothingNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectableNavigationView()
+        ClothingNavigationView()
     }
 }

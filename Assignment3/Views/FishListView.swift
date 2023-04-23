@@ -1,6 +1,6 @@
 //
 //  FishListView.swift
-//  Assignment3
+//  ACNH Reference
 //
 //  Created by Dan Kolan on 3/20/23.
 //

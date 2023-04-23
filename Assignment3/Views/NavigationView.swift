@@ -1,6 +1,6 @@
 //
 //  NavigationView.swift
-//  Assignment3
+//  ACNH Reference
 //
 //  Created by Dan Kolan on 3/20/23.
 //
@@ -25,6 +25,17 @@ struct NavigationView: View {
                                 name: "Catchables",
                                 type: "",
                                 imgUrl: "https://dodo.ac/np/images/b/b3/Olive_Flounder_NH_Icon.png",
+                                cardColor: Color("ACNHCardBackground"),
+                                scrimTransparency: 0.0
+                            )
+                        }
+                        NavigationLink {
+                            ClothingNavigationView()
+                        } label: {
+                            NavigationCardView(
+                                name: "Clothing",
+                                type: "",
+                                imgUrl: "https://dodo.ac/np/images/8/84/Acid-Washed_Jacket_%28Blue%29_NH_Icon.png",
                                 cardColor: Color("ACNHCardBackground"),
                                 scrimTransparency: 0.0
                             )

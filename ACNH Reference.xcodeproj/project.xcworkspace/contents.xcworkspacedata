@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/dk/code/auburn/cpsc_5340/final_project/CPSC-5340_final_project/ACNH Reference.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42001AED29F5025E00C8CF5C /* ClothingNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */; };
 		4226D34C29F31F5A00F982F5 /* ArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226D34B29F31F5A00F982F5 /* ArtModel.swift */; };
 		4226D34E29F323E900F982F5 /* ArtViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226D34D29F323E900F982F5 /* ArtViewModel.swift */; };
 		4226D35029F3329900F982F5 /* ArtListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226D34F29F3329900F982F5 /* ArtListView.swift */; };
@@ -32,6 +33,10 @@
 		4296DF7829C8204E006978BA /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7729C8204E006978BA /* FishListView.swift */; };
 		4296DF7A29C82745006978BA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296DF7929C82745006978BA /* NavigationView.swift */; };
 		4297632529E7C4A40047D9C1 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297632429E7C4A40047D9C1 /* LocationDataManager.swift */; };
+		42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165029F4F1A100FE2438 /* TopModel.swift */; };
+		42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165229F4F42F00FE2438 /* TopViewModel.swift */; };
+		42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165429F4F48A00FE2438 /* TopListView.swift */; };
+		42D2165729F4F4BC00FE2438 /* TopDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2165629F4F4BC00FE2438 /* TopDetail.swift */; };
 		42D671A429EFADEE006D4AD9 /* BugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D671A329EFADEE006D4AD9 /* BugModel.swift */; };
 		42D671A629EFB0A3006D4AD9 /* BugViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D671A529EFB0A3006D4AD9 /* BugViewModel.swift */; };
 		42D671A829EFB151006D4AD9 /* BugListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D671A729EFB151006D4AD9 /* BugListView.swift */; };
@@ -48,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingNavigationView.swift; sourceTree = "<group>"; };
 		4226D34B29F31F5A00F982F5 /* ArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtModel.swift; sourceTree = "<group>"; };
 		4226D34D29F323E900F982F5 /* ArtViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtViewModel.swift; sourceTree = "<group>"; };
 		4226D34F29F3329900F982F5 /* ArtListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListView.swift; sourceTree = "<group>"; };
@@ -72,6 +78,10 @@
 		4296DF7729C8204E006978BA /* FishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListView.swift; sourceTree = "<group>"; };
 		4296DF7929C82745006978BA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		4297632429E7C4A40047D9C1 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		42D2165029F4F1A100FE2438 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
+		42D2165229F4F42F00FE2438 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		42D2165429F4F48A00FE2438 /* TopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListView.swift; sourceTree = "<group>"; };
+		42D2165629F4F4BC00FE2438 /* TopDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDetail.swift; sourceTree = "<group>"; };
 		42D671A329EFADEE006D4AD9 /* BugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugModel.swift; sourceTree = "<group>"; };
 		42D671A529EFB0A3006D4AD9 /* BugViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugViewModel.swift; sourceTree = "<group>"; };
 		42D671A729EFB151006D4AD9 /* BugListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugListView.swift; sourceTree = "<group>"; };
@@ -109,6 +119,7 @@
 				42D671AB29EFB73C006D4AD9 /* SeaCreatureModel.swift */,
 				4242CACE29C1221800A78C4E /* VillagerModel.swift */,
 				424606BC29F4B0270043BFDB /* FossilModel.swift */,
+				42D2165029F4F1A100FE2438 /* TopModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 				42D671AD29EFB7B9006D4AD9 /* SeaCreatureViewModel.swift */,
 				4242CAD529C18BED00A78C4E /* VillagersViewModel.swift */,
 				424606BE29F4B20D0043BFDB /* FossilViewModel.swift */,
+				42D2165229F4F42F00FE2438 /* TopViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -150,6 +162,9 @@
 				4285CC6C29C2E317008E7631 /* VillagersListView.swift */,
 				424606C029F4B4210043BFDB /* FossilListView.swift */,
 				424606C229F4B5140043BFDB /* FossilDetail.swift */,
+				42D2165429F4F48A00FE2438 /* TopListView.swift */,
+				42D2165629F4F4BC00FE2438 /* TopDetail.swift */,
+				42001AEC29F5025E00C8CF5C /* ClothingNavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,7 +288,9 @@
 				4226D34C29F31F5A00F982F5 /* ArtModel.swift in Sources */,
 				4242CAD629C18BED00A78C4E /* VillagersViewModel.swift in Sources */,
 				4226D34E29F323E900F982F5 /* ArtViewModel.swift in Sources */,
+				42D2165329F4F42F00FE2438 /* TopViewModel.swift in Sources */,
 				42D671B229EFB80B006D4AD9 /* SeaCreatureDetail.swift in Sources */,
+				42001AED29F5025E00C8CF5C /* ClothingNavigationView.swift in Sources */,
 				42D671AE29EFB7B9006D4AD9 /* SeaCreatureViewModel.swift in Sources */,
 				4296DF7629C82034006978BA /* FishDetail.swift in Sources */,
 				42F7AC5829E53C450014F994 /* IconView.swift in Sources */,
@@ -292,6 +309,9 @@
 				4285CC6D29C2E317008E7631 /* VillagersListView.swift in Sources */,
 				4242CACF29C1221800A78C4E /* VillagerModel.swift in Sources */,
 				42D671A429EFADEE006D4AD9 /* BugModel.swift in Sources */,
+				42D2165129F4F1A100FE2438 /* TopModel.swift in Sources */,
+				42D2165529F4F48A00FE2438 /* TopListView.swift in Sources */,
+				42D2165729F4F4BC00FE2438 /* TopDetail.swift in Sources */,
 				4242CAD429C14C7D00A78C4E /* ImageCardView.swift in Sources */,
 				4296DF7229C8198E006978BA /* FishModel.swift in Sources */,
 				42D671B029EFB7E1006D4AD9 /* SeaCreatureListView.swift in Sources */,
