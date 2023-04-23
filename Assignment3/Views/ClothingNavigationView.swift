@@ -37,17 +37,17 @@ struct ClothingNavigationView: View {
                             scrimTransparency: 0.0
                         )
                     }
-//                    NavigationLink {
-//                        SeaCreatureListView()
-//                    } label: {
-//                        NavigationCardView(
-//                            name: "Sea Creatures",
-//                            type: "",
-//                            imgUrl: "https://dodo.ac/np/images/c/ca/Gigas_Giant_Clam_NH_Icon.png",
-//                            cardColor: Color("ACNHCardBackground"),
-//                            scrimTransparency: 0.0
-//                        )
-//                    }
+                    NavigationLink {
+                        ShoeListView()
+                    } label: {
+                        NavigationCardView(
+                            name: "Shoes",
+                            type: "",
+                            imgUrl: "https://dodo.ac/np/images/7/70/Visual-Punk_Boots_NH_Icon.png",
+                            cardColor: Color("ACNHCardBackground"),
+                            scrimTransparency: 0.0
+                        )
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
