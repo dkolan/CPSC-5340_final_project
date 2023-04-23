@@ -62,7 +62,7 @@ struct SeaCreatureDetail: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text(seaCreature.name.capitalized)
-                            .font(.largeTitle.bold())
+                            .font(.title)
                             .foregroundColor(Color("ACNHText"))
                             .accessibilityAddTraits(.isHeader)
                     }

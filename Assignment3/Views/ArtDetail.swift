@@ -74,7 +74,7 @@ struct ArtDetail: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text(art.name.capitalized)
-                            .font(.largeTitle.bold())
+                            .font(.title)
                             .foregroundColor(Color("ACNHText"))
                             .accessibilityAddTraits(.isHeader)
                     }

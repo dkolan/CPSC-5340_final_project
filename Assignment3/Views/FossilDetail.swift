@@ -44,7 +44,7 @@ struct FossilDetail: View {
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             Text(fossil.name.capitalized)
-                                .font(.largeTitle.bold())
+                                .font(.title)
                                 .foregroundColor(Color("ACNHText"))
                                 .accessibilityAddTraits(.isHeader)
                         }
