@@ -24,7 +24,6 @@ struct ImageCardView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: frameWidth, height: frameHeight)
-            .cornerRadius(20)
             .onAppear {
 //                Debug checking if images are successfulyl cached
 //                print("url: \(url) cached: \(KingfisherManager.shared.cache.isCached(forKey:url))")

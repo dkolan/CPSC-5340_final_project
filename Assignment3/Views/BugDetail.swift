@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BugDetail: View {
-    @ObservedObject var BugVM = BugViewModel()
+    @StateObject var BugVM = BugViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
+    @State var imageCardZoomed: Bool = false
 
     var bug : BugModel
 
@@ -32,8 +33,17 @@ struct BugDetail: View {
     var body: some View {
         ZStack {
             Color("ACNHBackground").ignoresSafeArea()
+            GeometryReader { geometry in
                 VStack {
-                    ImageCardView(url: bug.render_url, frameWidth: 200, frameHeight: 200)
+                    ImageCardView(url: bug.render_url, frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
+                                  frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
+                        .onTapGesture {
+                            withAnimation {
+                                imageCardZoomed.toggle()
+                            }
+                        }
+                    Spacer()
+                        .padding()
                     ScrollView {
                         DetailView(icon: "calendar", header: "Months Available:", value: months, textColor: Color("ACNHText"))
                         DetailView(icon: "clock", header: "Time Available:", value: time, textColor: Color("ACNHText"))
@@ -43,19 +53,20 @@ struct BugDetail: View {
                         }
                         DetailView(icon: "banknote", header: "Nook Price:", value: String(bug.sell_nook), textColor: Color("ACNHText"))
                         DetailView(icon: "banknote", header: "Flick's Price:", value: String(bug.sell_flick), textColor: Color("ACNHText"))
-                        Spacer()
                     }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text(bug.name.capitalized)
-                            .font(.largeTitle.bold())
-                            .foregroundColor(Color("ACNHText"))
-                            .accessibilityAddTraits(.isHeader)
+                    .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text(bug.name.capitalized)
+                                .font(.largeTitle.bold())
+                                .foregroundColor(Color("ACNHText"))
+                                .accessibilityAddTraits(.isHeader)
+                        }
                     }
-                }
-                .onAppear {
-                    BugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+                    .onAppear {
+                        BugVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+                    }
                 }
             }
         }

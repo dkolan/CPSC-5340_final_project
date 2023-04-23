@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SeaCreatureDetail: View {
-    @ObservedObject var seaCreatureVM = SeaCreatureViewModel()
+    @StateObject var seaCreatureVM = SeaCreatureViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
+    @State var imageCardZoomed: Bool = false
 
     var seaCreature : SeaCreatureModel
 
@@ -32,30 +33,42 @@ struct SeaCreatureDetail: View {
     var body: some View {
         ZStack {
             Color("ACNHBackground").ignoresSafeArea()
-            VStack {
-                ImageCardView(url: seaCreature.render_url, frameWidth: 200, frameHeight: 200)
-                ScrollView {
-                    DetailView(icon: "calendar", header: "Months Available:", value: months, textColor: Color("ACNHText"))
-                    DetailView(icon: "clock", header: "Time Available:", value: time, textColor: Color("ACNHText"))
-                    DetailView(icon: "binoculars", header: "Shadow Size:", value: seaCreature.shadow_size, textColor: Color("ACNHText"))
-                    DetailView(icon: "binoculars", header: "Shadow Movement:", value: seaCreature.shadow_movement, textColor: Color("ACNHText"))
-                    if !seaCreature.rarity.isEmpty {
-                        DetailView(icon: "magnifyingglass", header: "Rarity:", value: seaCreature.rarity, textColor: Color("ACNHText"))
+            GeometryReader { geometry in
+                VStack {
+                    ImageCardView(url: seaCreature.render_url, frameWidth: imageCardZoomed ? geometry.size.width : geometry.size.width / 4,
+                          frameHeight: imageCardZoomed ? geometry.size.height : geometry.size.height / 4)
+                        .onTapGesture {
+                            withAnimation {
+                                imageCardZoomed.toggle()
+                            }
+                        }
+                    Spacer()
+                        .padding()
+                    ScrollView {
+                        DetailView(icon: "calendar", header: "Months Available:", value: months, textColor: Color("ACNHText"))
+                        DetailView(icon: "clock", header: "Time Available:", value: time, textColor: Color("ACNHText"))
+                        DetailView(icon: "binoculars", header: "Shadow Size:", value: seaCreature.shadow_size, textColor: Color("ACNHText"))
+                        DetailView(icon: "binoculars", header: "Shadow Movement:", value: seaCreature.shadow_movement, textColor: Color("ACNHText"))
+                        if !seaCreature.rarity.isEmpty {
+                            DetailView(icon: "magnifyingglass", header: "Rarity:", value: seaCreature.rarity, textColor: Color("ACNHText"))
+                        }
+                        DetailView(icon: "banknote", header: "Nook Price:", value: String(seaCreature.sell_nook), textColor: Color("ACNHText"))
                     }
-                    DetailView(icon: "banknote", header: "Nook Price:", value: String(seaCreature.sell_nook), textColor: Color("ACNHText"))                }
-                .listStyle(PlainListStyle())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text(seaCreature.name.capitalized)
-                        .font(.largeTitle.bold())
-                        .foregroundColor(Color("ACNHText"))
-                        .accessibilityAddTraits(.isHeader)
+                    .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                 }
-            }
-            .onAppear {
-                seaCreatureVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text(seaCreature.name.capitalized)
+                            .font(.largeTitle.bold())
+                            .foregroundColor(Color("ACNHText"))
+                            .accessibilityAddTraits(.isHeader)
+                    }
+                }
+                .onAppear {
+                    seaCreatureVM.hemisphere = locationDataManager.hemisphere ?? "north" // default assumption user is north hemisphere
+                }
+                
             }
         }
     }
