@@ -53,6 +53,8 @@ struct BugDetail: View {
                         }
                         DetailView(icon: "banknote", header: "Nook Price:", value: String(bug.sell_nook), textColor: Color("ACNHText"))
                         DetailView(icon: "banknote", header: "Flick's Price:", value: String(bug.sell_flick), textColor: Color("ACNHText"))
+                        Spacer()
+                            .frame(height: geometry.size.height * 0.15)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                     .navigationBarTitleDisplayMode(.inline)

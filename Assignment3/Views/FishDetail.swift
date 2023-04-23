@@ -56,6 +56,7 @@ struct FishDetail: View {
                         DetailView(icon: "banknote", header: "Nook Price:", value: String(fish.sell_nook), textColor: Color("ACNHText"))
                         DetailView(icon: "banknote", header: "CJ's Price:", value: String(fish.sell_cj), textColor: Color("ACNHText"))
                         Spacer()
+                            .frame(height: geometry.size.height * 0.15)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                 }

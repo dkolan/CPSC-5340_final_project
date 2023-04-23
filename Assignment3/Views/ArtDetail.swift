@@ -64,7 +64,8 @@ struct ArtDetail: View {
                         if let fakeInfo = art.fake_info {
                             DetailView(icon: "questionmark.app", header: "Fake Description:", value: fakeInfo.description, textColor: Color("ACNHText"))
                         }
-                        
+                        Spacer()
+                            .frame(height: geometry.size.height * 0.125)
                         //                    DetailView(icon: "theatermask.and.paintbrush", header: "Type:", value: art.art_type, textColor: Color("ACNHText"))
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)

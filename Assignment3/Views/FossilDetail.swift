@@ -36,6 +36,8 @@ struct FossilDetail: View {
                         DetailView(icon: "hand.tap", header: "Interactive:", value: fossil.interactable ? "✔️" : "❌", textColor: Color("ACNHText"))
                         
                         DetailView(icon: "banknote", header: "Sell Price:", value: String(fossil.sell), textColor: Color("ACNHText"))
+                        Spacer()
+                            .frame(height: geometry.size.height * 0.15)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                     .navigationBarTitleDisplayMode(.inline)

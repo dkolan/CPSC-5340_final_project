@@ -53,6 +53,8 @@ struct SeaCreatureDetail: View {
                             DetailView(icon: "magnifyingglass", header: "Rarity:", value: seaCreature.rarity, textColor: Color("ACNHText"))
                         }
                         DetailView(icon: "banknote", header: "Nook Price:", value: String(seaCreature.sell_nook), textColor: Color("ACNHText"))
+                        Spacer()
+                            .frame(height: geometry.size.height * 0.15)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                 }

@@ -34,6 +34,8 @@ struct VillagerDetail: View {
                         DetailView(icon: "cross.circle", header: "Gender:", value: villager.gender, textColor: Color("ACNHText"))
                         DetailView(icon: "quote.bubble", header: "Catchphrase:", value: "\"\(villager.phrase)\"", textColor: Color("ACNHText"))
                         DetailView(icon: "mic", header: "Saying:", value: "\"\(villager.quote)\"", textColor: Color("ACNHText"))
+                        Spacer()
+                            .frame(height: geometry.size.height * 0.15)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                 }
