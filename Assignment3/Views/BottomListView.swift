@@ -1,14 +1,14 @@
 //
-//  TopListView.swift
+//  BottomListView.swift
 //  ACNH Reference
 //
-//  Created by Dan Kolan on 4/22/23.
+//  Created by Dan Kolan on 4/23/23.
 //
 
 import SwiftUI
 
-struct TopListView: View {
-    @StateObject var topVM = TopViewModel()
+struct BottomListView: View {
+    @StateObject var bottomVM = BottomViewModel()
     @EnvironmentObject var locationDataManager: LocationDataManager
 
     var body: some View {
@@ -16,18 +16,18 @@ struct TopListView: View {
             Color("ACNHBackground").ignoresSafeArea()
             VStack {
                 List {
-                    ForEach(topVM.searchResults) { top in
+                    ForEach(bottomVM.searchResults) { bottom in
                         NavigationLink {
-                            TopDetail(top: top)
+                            BottomDetail(bottom: bottom)
                         } label: {
                             HStack {
-                                Image(systemName: topVM.favoriteTop
-                                    .contains(where: { $0.id == top.id }) ? "star.fill" : "star")
+                                Image(systemName: bottomVM.favoriteBottom
+                                    .contains(where: { $0.id == bottom.id }) ? "star.fill" : "star")
                                 .onTapGesture {
-                                    topVM.toggleFavorite(top: top)
+                                    bottomVM.toggleFavorite(bottom: bottom)
                                 }
-                                IconView(url: top.variations[0].imageUrl, frameWidth: 50, frameHeight: 50)
-                                Text(top.name.capitalized)
+                                IconView(url: bottom.variations[0].imageUrl, frameWidth: 50, frameHeight: 50)
+                                Text(bottom.name.capitalized)
                                     .foregroundColor(Color("ACNHText"))
                             }
                         }
@@ -40,42 +40,42 @@ struct TopListView: View {
                     }
                 }
                 .task {
-                    await topVM.fetchData()
+                    await bottomVM.fetchData()
                 }
-                .alert(isPresented: $topVM.hasError, error: topVM.error) {
+                .alert(isPresented: $bottomVM.hasError, error: bottomVM.error) {
                     Text("Error.")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .listStyle(.plain)
-                .blendMode(topVM.searchResults.isEmpty ? .destinationOver : .normal)
+                .blendMode(bottomVM.searchResults.isEmpty ? .destinationOver : .normal)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .navigationTitle("Tops")
+                .navigationTitle("Bottoms")
                 .foregroundColor(Color("ACNHText"))
-                .searchable(text: $topVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .searchable(text: $bottomVM.searchText, placement: .navigationBarDrawer(displayMode: .always))
             }
             .background(Color("ACNHBackground"))
             .padding(5)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("Tops").font(.title)
+                        Text("Bottoms").font(.title)
                             .foregroundColor(Color("ACNHText"))
                     }
                 }
             }
             .navigationBarItems(trailing: Button(action: {
-                topVM.isFavoritesOnly.toggle()
+                bottomVM.isFavoritesOnly.toggle()
             }) {
                 Text("Favorites")
-                Image(systemName: topVM.isFavoritesOnly ? "star.fill" : "star")
+                Image(systemName: bottomVM.isFavoritesOnly ? "star.fill" : "star")
                     .foregroundColor(Color("ACNHText"))
             })
         }
     }
 }
 
-//struct TopListView_Previews: PreviewProvider {
+//struct BottomListView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        TopListView()
+//        BottomListView()
 //    }
 //}
