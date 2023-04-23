@@ -81,7 +81,7 @@
 		42D671AF29EFB7E1006D4AD9 /* SeaCreatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaCreatureListView.swift; sourceTree = "<group>"; };
 		42D671B129EFB80B006D4AD9 /* SeaCreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaCreatureDetail.swift; sourceTree = "<group>"; };
 		42F7AC5729E53C450014F994 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
-		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF5E03C29BE957F00DD981A /* ACNH Reference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACNH Reference.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5E03F29BE957F00DD981A /* Assignment3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3App.swift; sourceTree = "<group>"; };
 		ACF5E04129BE957F00DD981A /* AnimalCrossingVillagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCrossingVillagers.swift; sourceTree = "<group>"; };
 		ACF5E04329BE958000DD981A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		ACF5E03D29BE957F00DD981A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACF5E03C29BE957F00DD981A /* Assignment3.app */,
+				ACF5E03C29BE957F00DD981A /* ACNH Reference.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACF5E03B29BE957F00DD981A /* Assignment3 */ = {
+		ACF5E03B29BE957F00DD981A /* ACNH Reference */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "Assignment3" */;
+			buildConfigurationList = ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "ACNH Reference" */;
 			buildPhases = (
 				ACF5E03829BE957F00DD981A /* Sources */,
 				ACF5E03929BE957F00DD981A /* Frameworks */,
@@ -207,12 +207,12 @@
 			);
 			dependencies = (
 			);
-			name = Assignment3;
+			name = "ACNH Reference";
 			packageProductDependencies = (
 				427FAF0B29E3C67600D32093 /* Kingfisher */,
 			);
 			productName = Assignment3;
-			productReference = ACF5E03C29BE957F00DD981A /* Assignment3.app */;
+			productReference = ACF5E03C29BE957F00DD981A /* ACNH Reference.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "Assignment3" */;
+			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "ACNH Reference" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -246,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACF5E03B29BE957F00DD981A /* Assignment3 */,
+				ACF5E03B29BE957F00DD981A /* ACNH Reference */,
 			);
 		};
 /* End PBXProject section */
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "Assignment3" */ = {
+		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "ACNH Reference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACF5E04829BE958000DD981A /* Debug */,
@@ -495,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "Assignment3" */ = {
+		ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "ACNH Reference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACF5E04B29BE958000DD981A /* Debug */,
