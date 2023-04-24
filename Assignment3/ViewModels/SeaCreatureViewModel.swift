@@ -23,7 +23,7 @@ class SeaCreatureViewModel : ObservableObject {
         }
     }
     private let favoriteSeaCreatureKey = "favoriteSeaCreature"
-    private let url = "https://api.nookipedia.com/nh/sea?api_key=\(NookpediaViewModel.apiKey)"
+    private let url = "https://api.nookipedia.com/nh/sea?api_key=b15ac011-8ba5-4d29-974b-97118f9df0dd"
 
     enum SearchField: String, CaseIterable {
         case name
